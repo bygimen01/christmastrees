@@ -18,9 +18,9 @@ export function HomePage() {
   const { locale } = useShop();
   const t = copy[locale];
   const SiteCopy = getLocalizedShopConfig(locale);
-  const Benefits = SiteCopy.benefits as ReadonlyArray<readonly [string, string]>;
-  const WhyItems = SiteCopy.whyItems as ReadonlyArray<readonly [string, string]>;
-  const HowItems = SiteCopy.processSteps as ReadonlyArray<readonly [string, string]>;
+  const Benefits = SiteCopy.benefits as ReadonlyArray<readonly string[][]>;
+  const WhyItems = SiteCopy.whyItems as ReadonlyArray<readonly string[][]>;
+  const HowItems = SiteCopy.processSteps as ReadonlyArray<readonly string[][]>;
   const Popular = getPopularFamilies(4);
   const Origin = getSiteUrl() || (typeof window === "undefined" ? "" : window.location.origin);
   const HeroFamily = getFamilyBySetId(shopConfig.catalog.heroProductSetId) ?? Popular[0] ?? productFamilies[0];
