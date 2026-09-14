@@ -1,0 +1,17 @@
+{
+  "name": "CHRISTMAS-TREES",
+  "short_name": "CHRISTMAS-TREES",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#f6f2e9",
+  "theme_color": "#102b21",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
