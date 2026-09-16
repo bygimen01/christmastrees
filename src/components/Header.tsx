@@ -14,12 +14,13 @@ export function Header() {
   const { locale, cartCount, setCartOpen } = useShop();
   const [MenuOpen, setMenuOpen] = useState(false);
   const [Scrolled, setScrolled] = useState(false);
+  const Location = useLocation();
   const MenuButtonRef = useRef<HTMLButtonElement | null>(null);
   const MenuCloseRef = useRef<HTMLButtonElement | null>(null);
   const MenuPanelRef = useRef<HTMLDivElement | null>(null);
+  const PreviousLocationRef = useRef(`${Location.pathname}${Location.hash}`);
   const t = copy[locale];
   const SiteCopy = getLocalizedShopConfig(locale);
-  const Location = useLocation();
   const IsHome = Location.pathname === "/";
 
   const HandleHomeClick = (Event: MouseEvent<HTMLAnchorElement>) => {
@@ -37,7 +38,11 @@ export function Header() {
   useBodyScrollLock(MenuOpen);
 
   useEffect(() => {
-    setMenuOpen(false);
+    const CurrentLocation = `${Location.pathname}${Location.hash}`;
+    if (PreviousLocationRef.current !== CurrentLocation) {
+      setMenuOpen(false);
+      PreviousLocationRef.current = CurrentLocation;
+    }
   }, [Location.pathname, Location.hash]);
 
   useEffect(() => {
@@ -102,8 +107,8 @@ export function Header() {
     Scrolled ? "is-scrolled" : ""
   ].filter(Boolean).join(" ");
 
-  const MobileMenu = (
-    <div className={MenuOpen ? "mobile-menu is-open" : "mobile-menu"} aria-hidden={!MenuOpen}>
+  const MobileMenu = MenuOpen ? (
+    <div className="mobile-menu is-open">
       <button className="mobile-menu-backdrop" type="button" aria-label={t.nav.close} onClick={() => setMenuOpen(false)} />
       <div ref={MenuPanelRef} className="mobile-menu-panel" role="dialog" aria-modal="true" aria-label={t.nav.menu}>
         <div className="mobile-menu-top">
@@ -143,7 +148,7 @@ export function Header() {
         </div>
       </div>
     </div>
-  );
+  ) : null;
 
   return (
     <>
@@ -180,7 +185,7 @@ export function Header() {
           </div>
         </div>
       </header>
-      {typeof document !== "undefined" ? createPortal(MobileMenu, document.body) : null}
+      {MobileMenu && typeof document !== "undefined" ? createPortal(MobileMenu, document.body) : null}
     </>
   );
 }

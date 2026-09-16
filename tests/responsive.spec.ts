@@ -81,6 +81,23 @@ test("mobile menu fully covers the viewport and keeps readable colors", async ({
   await expect(page.locator('.mobile-menu-panel a[href="/catalog"]')).toBeVisible();
 });
 
+
+test("mobile menu stays open after its entrance animation and releases the page after closing", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/");
+  const MenuButton = page.locator(".menu-button");
+  await MenuButton.click();
+  await expect(page.locator(".mobile-menu.is-open")).toBeVisible();
+  await page.waitForTimeout(900);
+  await expect(page.locator(".mobile-menu.is-open")).toBeVisible();
+  await expect(page.locator(".mobile-menu-panel")).toBeVisible();
+  await page.locator(".mobile-menu-close").click();
+  await expect(page.locator(".mobile-menu")).toHaveCount(0);
+  await expect(MenuButton).toBeFocused();
+  await MenuButton.click();
+  await expect(page.locator(".mobile-menu.is-open")).toBeVisible();
+});
+
 test("mobile cart drawer uses the full viewport width", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.addInitScript(() => {
