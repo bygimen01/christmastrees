@@ -2427,11 +2427,6 @@ p {
   padding: 28px 26px;
   display: flex;
   gap: 15px;
-  border-right: 1px solid var(--line);
-}
-
-.trust-grid article:last-child {
-  border-right: 0;
 }
 
 .trust-icon {
@@ -8651,10 +8646,6 @@ html {
   animation: ornament-orbit 22s linear infinite;
 }
 
-.why-list {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
 .why-list article,
 .why-list article:first-child {
   min-height: 104px;
@@ -13601,4 +13592,43 @@ html {
 :root[data-theme="dark"] .mobile-menu-bottom .segmented-control button.is-active {
   color: #0b1b14 !important;
   background: #f0eadf !important;
+}
+
+@media (max-width: 680px) {
+  .process-section .process-grid > article {
+    display: grid !important;
+    grid-template-columns: 42px minmax(0, 1fr) !important;
+    align-items: start !important;
+    column-gap: 14px !important;
+    row-gap: 0 !important;
+    padding: 18px 16px !important;
+  }
+
+  .process-section .process-grid > article > .process-card-icon {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: static !important;
+  }
+
+  .process-section .process-card-copy {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+  }
+
+  .process-section .process-card-copy h3 {
+    margin: 0 0 6px !important;
+    padding: 0 !important;
+  }
+
+  .process-section .process-card-copy p {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
 }

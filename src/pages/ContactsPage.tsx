@@ -86,7 +86,7 @@ export function ContactsPage() {
               <span className="info-card-icon"><MapPin size={21} aria-hidden="true" /></span>
               <div>
                 <small>{SiteCopy.showroomLabel}</small>
-                <strong>{shopConfig.business.showroom}</strong>
+                <span>{shopConfig.business.showroom}</span>
                 <span>{shopConfig.business.deliveryArea}</span>
               </div>
             </div>
@@ -94,7 +94,7 @@ export function ContactsPage() {
               <span className="info-card-icon"><Clock3 size={21} aria-hidden="true" /></span>
               <div>
                 <small>{SiteCopy.workingHoursLabel}</small>
-                <strong>{shopConfig.business.workingHours}</strong>
+                <span>{shopConfig.business.workingHours}</span>
                 <span>{shopConfig.business.responseTime}</span>
               </div>
             </div>

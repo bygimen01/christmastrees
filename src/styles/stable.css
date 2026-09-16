@@ -726,14 +726,17 @@ body {
 
 .info-hero p,
 .contact-method-card p,
-.contact-business-card span,
-.contact-business-card small,
 .info-step-grid p,
 .size-guide-copy p,
 .size-guide-list p,
 .faq-page-layout p,
 .accordion-panel p {
   color: var(--stable-muted);
+}
+
+.contact-business-card span,
+.contact-business-card small {
+  color: #9eaca4 !important;
 }
 
 .delivery-facts,
