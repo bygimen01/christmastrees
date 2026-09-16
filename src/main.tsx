@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { App } from "./App";
 import { ShopProvider } from "./context/ShopContext";
 import "./styles/styles.css";
+import "./styles/stable.css";
 
 const RouterBaseName = import.meta.env.BASE_URL === "/" ? "/" : import.meta.env.BASE_URL.replace(/\/$/, "");
 

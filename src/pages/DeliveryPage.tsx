@@ -39,7 +39,8 @@ export function DeliveryPage() {
             <h2>{Page.stepsTitle}</h2>
           </div>
           <div className="info-step-grid compact-step-grid">
-            {Page.steps.map(([Title, Text], Index) => {
+            {Page.steps.map((Step, Index) => {
+              const [Title, Text] = Step;
               const Icon = StepIcons[Index] ?? CheckCircle2;
               return (
                 <article key={Title} data-reveal>
@@ -67,12 +68,16 @@ export function DeliveryPage() {
             </Link>
           </div>
           <div className="size-guide-list">
-            {Page.sizeItems.map(([Range, Text]) => (
-              <article key={Range} data-reveal>
-                <strong>{Range}</strong>
-                <p>{Text}</p>
-              </article>
-            ))}
+            {Page.sizeItems.map((SizeItem) => {
+              const [Range, Text] = SizeItem;
+
+              return (
+                <article key={Range} data-reveal>
+                  <strong>{Range}</strong>
+                  <p>{Text}</p>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>

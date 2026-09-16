@@ -78,11 +78,17 @@ export function CheckoutPage() {
       subtotal: Subtotal
     };
 
+    const OrderApiUrl = getOrderApiUrl();
+    if (!OrderApiUrl) {
+      setErrors((Current) => ({ ...Current, api: t.checkout.apiError }));
+      return;
+    }
+
     setSubmitting(true);
     setErrors((Current) => ({ ...Current, api: undefined }));
 
     try {
-      const Response = await fetch(getOrderApiUrl(), {
+      const Response = await fetch(OrderApiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(Payload)

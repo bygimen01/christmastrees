@@ -13,13 +13,19 @@ export function useBodyScrollLock(Locked: boolean) {
 
     if (LockCount === 0) {
       const ScrollbarWidth = Math.max(0, window.innerWidth - document.documentElement.clientWidth);
+      const SupportsStableScrollbarGutter = typeof CSS !== "undefined" && CSS.supports("scrollbar-gutter", "stable");
       PreviousBodyOverflow = document.body.style.overflow;
       PreviousBodyPaddingRight = document.body.style.paddingRight;
       PreviousHtmlOverflow = document.documentElement.style.overflow;
 
       document.documentElement.style.overflow = "hidden";
       document.body.style.overflow = "hidden";
-      document.body.style.paddingRight = ScrollbarWidth ? `${ScrollbarWidth}px` : PreviousBodyPaddingRight;
+
+      if (!SupportsStableScrollbarGutter && ScrollbarWidth > 0) {
+        const CurrentPaddingRight = Number.parseFloat(window.getComputedStyle(document.body).paddingRight) || 0;
+        document.body.style.paddingRight = `${CurrentPaddingRight + ScrollbarWidth}px`;
+      }
+
       document.body.classList.add("scroll-locked");
     }
 

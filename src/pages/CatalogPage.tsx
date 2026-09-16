@@ -1,5 +1,6 @@
 import { Check, Search, SlidersHorizontal, X } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { useSearchParams } from "react-router-dom";
 import { ProductCard } from "../components/ProductCard";
 import { Seo } from "../components/Seo";
@@ -15,6 +16,7 @@ import {
   productFamilies
 } from "../data/catalog";
 import { useBodyScrollLock } from "../hooks/useBodyScrollLock";
+import { useDialogFocusTrap } from "../hooks/useDialogFocusTrap";
 import { copy, getCategoryLabel } from "../i18n/content";
 
 type SortMode = "recommended" | "priceAsc" | "priceDesc" | "name";
@@ -46,8 +48,18 @@ export function CatalogPage() {
   const [PriceRange, setPriceRange] = useState<[number, number]>([priceBoundsKzt.min, priceBoundsKzt.max]);
   const [Sort, setSort] = useState<SortMode>(() => (SearchParams.get("sort") as SortMode) || "recommended");
   const [FiltersOpen, setFiltersOpen] = useState(false);
+  const FilterButtonRef = useRef<HTMLButtonElement | null>(null);
+  const FilterPanelRef = useRef<HTMLDivElement | null>(null);
+  const FilterCloseRef = useRef<HTMLButtonElement | null>(null);
 
   useBodyScrollLock(FiltersOpen);
+  useDialogFocusTrap({
+    Active: FiltersOpen,
+    DialogRef: FilterPanelRef,
+    InitialFocusRef: FilterCloseRef,
+    ReturnFocusRef: FilterButtonRef,
+    OnEscape: () => setFiltersOpen(false)
+  });
 
   useEffect(() => {
     const Params = new URLSearchParams();
@@ -79,18 +91,6 @@ export function CatalogPage() {
     if (ParamStock !== InStockOnly) setInStockOnly(ParamStock);
     if (SafeSort !== Sort) setSort(SafeSort);
   }, [SearchParams]);
-
-  useEffect(() => {
-    if (!FiltersOpen) {
-      return;
-    }
-
-    const HandleKeyDown = (Event: KeyboardEvent) => {
-      if (Event.key === "Escape") setFiltersOpen(false);
-    };
-    window.addEventListener("keydown", HandleKeyDown);
-    return () => window.removeEventListener("keydown", HandleKeyDown);
-  }, [FiltersOpen]);
 
   const Filtered = useMemo(() => {
     const NormalizedQuery = normalizeSearch(Query);
@@ -147,6 +147,24 @@ export function CatalogPage() {
     />
   );
 
+  const MobileFilterDialog = (
+    <div className={FiltersOpen ? "filter-drawer is-open" : "filter-drawer"} aria-hidden={!FiltersOpen}>
+      <button className="drawer-backdrop" type="button" aria-label={t.nav.close} onClick={() => setFiltersOpen(false)} />
+      <div ref={FilterPanelRef} className="filter-panel mobile-filter-panel" role="dialog" aria-modal="true" aria-label={t.catalog.filters} tabIndex={-1}>
+        <div className="drawer-header">
+          <div>
+            <span className="eyebrow">{t.nav.catalog}</span>
+            <h2>{t.catalog.filters}</h2>
+          </div>
+          <button ref={FilterCloseRef} className="icon-button" type="button" aria-label={t.nav.close} onClick={() => setFiltersOpen(false)}>
+            <X size={22} aria-hidden="true" />
+          </button>
+        </div>
+        {RenderFilters("mobile", () => setFiltersOpen(false))}
+      </div>
+    </div>
+  );
+
   return (
     <>
       <Seo title={t.catalog.title} description={t.catalog.text} image={productFamilies[0]?.images[0] ?? "/tree-placeholder.svg"} />
@@ -173,7 +191,7 @@ export function CatalogPage() {
 
           <div className="catalog-main">
             <div className="catalog-toolbar">
-              <button className="button ghost mobile-filter-button" type="button" onClick={() => setFiltersOpen(true)}>
+              <button ref={FilterButtonRef} className="button ghost mobile-filter-button" type="button" onClick={() => setFiltersOpen(true)}>
                 <SlidersHorizontal size={18} aria-hidden="true" />
                 {t.catalog.filters}
                 {ActiveFilterCount > 0 && <span>{ActiveFilterCount}</span>}
@@ -221,21 +239,7 @@ export function CatalogPage() {
         </div>
       </section>
 
-      <div className={FiltersOpen ? "filter-drawer is-open" : "filter-drawer"} aria-hidden={!FiltersOpen}>
-        <button className="drawer-backdrop" type="button" aria-label={t.nav.close} onClick={() => setFiltersOpen(false)} />
-        <div className="filter-panel mobile-filter-panel" role="dialog" aria-modal="true" aria-label={t.catalog.filters}>
-          <div className="drawer-header">
-            <div>
-              <span className="eyebrow">{t.nav.catalog}</span>
-              <h2>{t.catalog.filters}</h2>
-            </div>
-            <button className="icon-button" type="button" aria-label={t.nav.close} onClick={() => setFiltersOpen(false)}>
-              <X size={22} aria-hidden="true" />
-            </button>
-          </div>
-          {RenderFilters("mobile", () => setFiltersOpen(false))}
-        </div>
-      </div>
+      {typeof document !== "undefined" ? createPortal(MobileFilterDialog, document.body) : null}
     </>
   );
 }

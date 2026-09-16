@@ -15,7 +15,15 @@ export function getSiteUrl() {
 
 export function getOrderApiUrl() {
   const ConfiguredApiUrl = import.meta.env.VITE_ORDER_API_URL?.trim();
-  return ConfiguredApiUrl || "/api/order";
+  if (ConfiguredApiUrl) {
+    return ConfiguredApiUrl;
+  }
+
+  if (typeof window !== "undefined" && window.location.hostname.endsWith("github.io")) {
+    return "";
+  }
+
+  return "/api/order";
 }
 
 export function getContactEntries() {

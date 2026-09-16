@@ -5,8 +5,8 @@
     "country": "KZ",
     "defaultLocale": "ru",
     "defaultCurrency": "KZT",
-    "favicon": "/favicon.svg",
-    "logo": "/favicon.svg"
+    "favicon": "/brand-mark.svg",
+    "logo": "/brand-mark.svg"
   },
   "catalog": {
     "itemsPerPage": 12,
@@ -27,13 +27,13 @@
   "contacts": {
     "phone": "+7 747 777 12 25",
     "phoneHref": "tel:+77477771225",
-    "email": "hello@CHRISTMAS-TREES.kz",
-    "telegram": "@christmastrees_kz",
-    "telegramUrl": "https://t.me/christmastrees_kz",
+    "email": "hello@dream-trees.kz",
+    "telegram": "@dreamtrees_kz",
+    "telegramUrl": "https://t.me/dreamtrees_kz",
     "whatsapp": "+7 747 777 12 25",
     "whatsappUrl": "https://wa.me/77477771225",
-    "instagram": "@christmastrees.kz",
-    "instagramUrl": "https://instagram.com/christmastrees.kz"
+    "instagram": "@dreamtrees.kz",
+    "instagramUrl": "https://instagram.com/dreamtrees.kz"
   },
   "business": {
     "city": "Алматы",
@@ -46,8 +46,8 @@
     "address": "Алматы, Казахстан"
   },
   "seo": {
-    "siteUrl": "https://CHRISTMAS-TREES.kz",
-    "defaultImage": "/images/products/new2/68.jpg",
+    "siteUrl": "https://dream-trees.kz",
+    "defaultImage": "/tree-placeholder.svg",
     "themeColor": "#102b21"
   },
   "ru": {

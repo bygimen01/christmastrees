@@ -1,10 +1,12 @@
 import { ArrowUpRight, Check, Plus, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import { formatMoney, formatRange, getPreviousPrice, getPrice } from "../config/currency";
 import { useShop } from "../context/ShopContext";
 import { ATTR_HEIGHT, getDefaultVariant, getFamilyPriceRange, getShortDescription } from "../data/catalog";
 import { useBodyScrollLock } from "../hooks/useBodyScrollLock";
+import { useDialogFocusTrap } from "../hooks/useDialogFocusTrap";
 import { copy, getCategoryLabel, getProductTitle } from "../i18n/content";
 import { ProductFamily, RawProduct } from "../types";
 import { SmartImage } from "./SmartImage";
@@ -18,6 +20,9 @@ export function ProductCard({ family, priority = false }: ProductCardProps) {
   const { locale, currency, addToCart } = useShop();
   const t = copy[locale];
   const [QuickAddOpen, setQuickAddOpen] = useState(false);
+  const QuickAddButtonRef = useRef<HTMLButtonElement | null>(null);
+  const QuickAddPanelRef = useRef<HTMLElement | null>(null);
+  const QuickAddCloseRef = useRef<HTMLButtonElement | null>(null);
   const [SelectedVariant, setSelectedVariant] = useState<RawProduct>(() => getDefaultVariant(family));
   const PriceRange = getFamilyPriceRange(family, currency);
   const Previous = getPreviousPrice(SelectedVariant, currency);
@@ -31,20 +36,13 @@ export function ProductCard({ family, priority = false }: ProductCardProps) {
     setSelectedVariant(getDefaultVariant(family));
   }, [family.setId]);
 
-  useEffect(() => {
-    if (!QuickAddOpen) {
-      return;
-    }
-
-    const HandleKeyDown = (Event: KeyboardEvent) => {
-      if (Event.key === "Escape") {
-        setQuickAddOpen(false);
-      }
-    };
-
-    window.addEventListener("keydown", HandleKeyDown);
-    return () => window.removeEventListener("keydown", HandleKeyDown);
-  }, [QuickAddOpen]);
+  useDialogFocusTrap({
+    Active: QuickAddOpen,
+    DialogRef: QuickAddPanelRef,
+    InitialFocusRef: QuickAddCloseRef,
+    ReturnFocusRef: QuickAddButtonRef,
+    OnEscape: () => setQuickAddOpen(false)
+  });
 
   const AddSelectedVariant = () => {
     if ((SelectedVariant.stock ?? 0) <= 0) {
@@ -55,10 +53,63 @@ export function ProductCard({ family, priority = false }: ProductCardProps) {
     setQuickAddOpen(false);
   };
 
+  const QuickAddDialog = (
+    <div className={QuickAddOpen ? "quick-add-shell is-open" : "quick-add-shell"} aria-hidden={!QuickAddOpen}>
+      <button className="drawer-backdrop" type="button" aria-label={t.nav.close} onClick={() => setQuickAddOpen(false)} />
+      <section ref={QuickAddPanelRef} className="quick-add-panel" role="dialog" aria-modal="true" aria-label={t.product.chooseHeight} tabIndex={-1}>
+        <div className="quick-add-top">
+          <div>
+            <span className="eyebrow">{getCategoryLabel(family.category, locale)}</span>
+            <h2>{getProductTitle(family.title, locale)}</h2>
+          </div>
+          <button ref={QuickAddCloseRef} className="icon-button" type="button" aria-label={t.nav.close} onClick={() => setQuickAddOpen(false)}>
+            <X size={20} aria-hidden="true" />
+          </button>
+        </div>
+
+        <div className="quick-add-product">
+          <SmartImage src={MainImage} alt={getProductTitle(family.title, locale)} loading="lazy" />
+          <div>
+            <p>{t.product.chooseHeight}</p>
+            <strong>{formatMoney(getPrice(SelectedVariant, currency), currency)}</strong>
+          </div>
+        </div>
+
+        <div className="quick-variant-grid">
+          {family.variants.map((Variant) => {
+            const Height = Variant.attrs?.[ATTR_HEIGHT] ?? "";
+            const IsActive = SelectedVariant.id === Variant.id;
+            const IsDisabled = (Variant.stock ?? 0) <= 0;
+
+            return (
+              <button
+                type="button"
+                key={Variant.id}
+                className={IsActive ? "quick-variant is-active" : "quick-variant"}
+                disabled={IsDisabled}
+                onClick={() => setSelectedVariant(Variant)}
+              >
+                <span>{Height} см</span>
+                <small>{IsDisabled ? t.product.unavailable : formatMoney(getPrice(Variant, currency), currency)}</small>
+                {IsActive && <Check size={15} aria-hidden="true" />}
+              </button>
+            );
+          })}
+        </div>
+
+        <button className="button primary wide quick-add-confirm" type="button" onClick={AddSelectedVariant}>
+          <Plus size={18} aria-hidden="true" />
+          {t.product.addToCart}
+        </button>
+      </section>
+    </div>
+  );
+
   return (
     <>
       <article className="product-card" data-reveal>
-        <Link className="product-media" to={`/products/${family.slug}`} aria-label={getProductTitle(family.title, locale)}>
+        <Link className="product-card-link" to={`/products/${family.slug}`} aria-label={getProductTitle(family.title, locale)} />
+        <div className="product-media">
           <div className="product-card-badges">
             {DiscountLabel && <span className="product-badge discount-badge">{DiscountLabel}</span>}
             {family.stock > 0 && <span className="product-badge stock-badge">{t.product.inStock}</span>}
@@ -73,7 +124,7 @@ export function ProductCard({ family, priority = false }: ProductCardProps) {
           <span className="product-card-arrow" aria-hidden="true">
             <ArrowUpRight size={18} />
           </span>
-        </Link>
+        </div>
 
         <div className="product-card-body">
           <div className="product-card-meta">
@@ -81,9 +132,7 @@ export function ProductCard({ family, priority = false }: ProductCardProps) {
             <span>{family.heights.length} {locale === "ru" ? "размеров" : "өлшем"}</span>
           </div>
 
-          <h3>
-            <Link to={`/products/${family.slug}`}>{getProductTitle(family.title, locale)}</Link>
-          </h3>
+          <h3>{getProductTitle(family.title, locale)}</h3>
           <p>{getShortDescription(family, locale)}</p>
 
           <div className="height-list" aria-label={t.product.heights}>
@@ -100,6 +149,7 @@ export function ProductCard({ family, priority = false }: ProductCardProps) {
               {Previous && PriceRange.min === PriceRange.max && <del>{formatMoney(Previous, currency)}</del>}
             </div>
             <button
+              ref={QuickAddButtonRef}
               className="quick-add-button"
               type="button"
               disabled={!AvailableVariants.length}
@@ -112,55 +162,7 @@ export function ProductCard({ family, priority = false }: ProductCardProps) {
         </div>
       </article>
 
-      <div className={QuickAddOpen ? "quick-add-shell is-open" : "quick-add-shell"} aria-hidden={!QuickAddOpen}>
-        <button className="drawer-backdrop" type="button" aria-label={t.nav.close} onClick={() => setQuickAddOpen(false)} />
-        <section className="quick-add-panel" role="dialog" aria-modal="true" aria-label={t.product.chooseHeight}>
-          <div className="quick-add-top">
-            <div>
-              <span className="eyebrow">{getCategoryLabel(family.category, locale)}</span>
-              <h2>{getProductTitle(family.title, locale)}</h2>
-            </div>
-            <button className="icon-button" type="button" aria-label={t.nav.close} onClick={() => setQuickAddOpen(false)}>
-              <X size={20} aria-hidden="true" />
-            </button>
-          </div>
-
-          <div className="quick-add-product">
-            <SmartImage src={MainImage} alt={getProductTitle(family.title, locale)} loading="lazy" />
-            <div>
-              <p>{t.product.chooseHeight}</p>
-              <strong>{formatMoney(getPrice(SelectedVariant, currency), currency)}</strong>
-            </div>
-          </div>
-
-          <div className="quick-variant-grid">
-            {family.variants.map((Variant) => {
-              const Height = Variant.attrs?.[ATTR_HEIGHT] ?? "";
-              const IsActive = SelectedVariant.id === Variant.id;
-              const IsDisabled = (Variant.stock ?? 0) <= 0;
-
-              return (
-                <button
-                  type="button"
-                  key={Variant.id}
-                  className={IsActive ? "quick-variant is-active" : "quick-variant"}
-                  disabled={IsDisabled}
-                  onClick={() => setSelectedVariant(Variant)}
-                >
-                  <span>{Height} см</span>
-                  <small>{IsDisabled ? t.product.unavailable : formatMoney(getPrice(Variant, currency), currency)}</small>
-                  {IsActive && <Check size={15} aria-hidden="true" />}
-                </button>
-              );
-            })}
-          </div>
-
-          <button className="button primary wide quick-add-confirm" type="button" onClick={AddSelectedVariant}>
-            <Plus size={18} aria-hidden="true" />
-            {t.product.addToCart}
-          </button>
-        </section>
-      </div>
+      {typeof document !== "undefined" ? createPortal(QuickAddDialog, document.body) : null}
     </>
   );
 }

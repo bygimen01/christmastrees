@@ -1,4 +1,4 @@
-import { ChevronRight, Menu, ShoppingBag, Sprout, X } from "lucide-react";
+import { ChevronRight, Menu, ShoppingBag, X } from "lucide-react";
 import { type MouseEvent, useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Link, NavLink, useLocation } from "react-router-dom";
@@ -8,6 +8,7 @@ import { useBodyScrollLock } from "../hooks/useBodyScrollLock";
 import { copy } from "../i18n/content";
 import { PreferenceControls } from "./PreferenceControls";
 import { ThemeToggle } from "./ThemeToggle";
+import { BrandLogo } from "./BrandLogo";
 
 export function Header() {
   const { locale, cartCount, setCartOpen } = useShop();
@@ -108,7 +109,7 @@ export function Header() {
         <div className="mobile-menu-top">
           <Link to="/" className="brand-link" onClick={HandleHomeClick}>
             <span className="brand-mark" aria-hidden="true">
-              <Sprout size={18} />
+              <BrandLogo />
             </span>
             <span>{shopConfig.brand.name}</span>
           </Link>
@@ -150,7 +151,7 @@ export function Header() {
         <div className="header-inner">
           <Link to="/" className="brand-link" aria-label={t.nav.home} onClick={HandleHomeClick}>
             <span className="brand-mark" aria-hidden="true">
-              <Sprout size={18} />
+              <BrandLogo />
             </span>
             <span className="brand-copy">
               <strong>{shopConfig.brand.name}</strong>

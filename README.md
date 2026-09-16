@@ -39,7 +39,7 @@ Optional custom public website URL.
 
 Example:
 
-`https://CHRISTMAS-TREES.kz`
+`https://dream-trees.kz`
 
 If it is not configured, the workflow automatically uses the GitHub Pages URL for canonical URLs and the generated sitemap.
 
@@ -49,7 +49,7 @@ Public HTTPS URL of the order API.
 
 Example:
 
-`https://CHRISTMAS-TREES-api.vercel.app/api/order`
+`https://dream-trees-api.vercel.app/api/order`
 
 GitHub Pages only hosts static frontend files. It cannot execute `api/order.js`, so Telegram orders require the API to be deployed separately on Vercel, Netlify, Cloudflare Workers, a Node server, or another backend host.
 
@@ -95,3 +95,11 @@ git push origin master
 ```
 
 After the push, GitHub Actions rebuilds and republishes the site automatically.
+
+## Product images
+
+Product and review image paths are read from `data/products.js` and `data/opinionsData.json`. Keep the existing `public/images` directory from your storefront repository when replacing the source files with this archive. If an image is unavailable, the UI falls back to `public/tree-placeholder.svg` instead of leaving a broken image.
+
+## Production order API
+
+When deploying the frontend to GitHub Pages, set the repository Action variable `VITE_ORDER_API_URL` to the public HTTPS endpoint of the deployed order API. Without that variable, the GitHub Pages frontend will not attempt to send an order to a nonexistent `/api/order` endpoint and will show the normal order error state instead.

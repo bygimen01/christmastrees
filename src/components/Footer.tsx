@@ -1,9 +1,10 @@
-import { ArrowUpRight, Instagram, Mail, MapPin, Phone, Send, Sprout } from "lucide-react";
+import { ArrowUpRight, Instagram, Mail, MapPin, Phone, Send } from "lucide-react";
 import { Link } from "react-router-dom";
 import { getLocalizedShopConfig, shopConfig } from "../config/shopConfig";
 import { useShop } from "../context/ShopContext";
 import { copy } from "../i18n/content";
 import { PreferenceControls } from "./PreferenceControls";
+import { BrandLogo } from "./BrandLogo";
 
 export function Footer() {
   const { locale } = useShop();
@@ -16,7 +17,7 @@ export function Footer() {
         <div className="footer-brand-column">
           <Link to="/" className="footer-brand">
             <span className="brand-mark" aria-hidden="true">
-              <Sprout size={18} />
+              <BrandLogo />
             </span>
             <span>{shopConfig.brand.name}</span>
           </Link>

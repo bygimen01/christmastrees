@@ -63,7 +63,7 @@ test("delivery size link scrolls to the guide", async ({ page }) => {
 test("checkout remains responsive with a stored cart", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.addInitScript(() => {
-    window.localStorage.setItem("CHRISTMAS-TREES-cart", JSON.stringify([{ productId: 1, quantity: 1 }]));
+    window.localStorage.setItem("dream-trees-cart", JSON.stringify([{ productId: 1, quantity: 1 }]));
   });
   await page.goto("/checkout");
   await expect(page.locator(".checkout-form")).toBeVisible();
@@ -84,7 +84,7 @@ test("mobile menu fully covers the viewport and keeps readable colors", async ({
 test("mobile cart drawer uses the full viewport width", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.addInitScript(() => {
-    window.localStorage.setItem("CHRISTMAS-TREES-cart", JSON.stringify([{ productId: 1, quantity: 1 }]));
+    window.localStorage.setItem("dream-trees-cart", JSON.stringify([{ productId: 1, quantity: 1 }]));
   });
   await page.goto("/catalog");
   await page.locator(".cart-button").click();
@@ -218,4 +218,97 @@ test("product purchase controls do not use a separate tinted panel", async ({ pa
   await page.goto(ProductRoute);
   const Background = await page.locator(".buy-box").evaluate((Element) => getComputedStyle(Element).backgroundColor);
   expect(Background).toBe("rgba(0, 0, 0, 0)");
+});
+
+
+test("catalog filters are static and do not chase the header", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto("/catalog");
+  await expect(page.locator(".catalog-sidebar")).toBeVisible();
+  const Position = await page.locator(".catalog-sidebar").evaluate((Element) => getComputedStyle(Element).position);
+  expect(Position).toBe("static");
+});
+
+test("the full product card opens the product while quick add stays interactive", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/catalog");
+  const Card = page.locator(".catalog-grid .product-card").first();
+  const CardLink = Card.locator(".product-card-link");
+  await expect(CardLink).toBeVisible();
+  const LinkBox = await CardLink.boundingBox();
+  const CardBox = await Card.boundingBox();
+  expect(Math.abs((LinkBox?.width ?? 0) - (CardBox?.width ?? 0))).toBeLessThanOrEqual(2);
+  await Card.locator(".product-card-body > p").click();
+  await expect(page).toHaveURL(/\/products\//);
+});
+
+test("dark reviews keep readable text and purchase controls have no tinted frame", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.addInitScript(() => window.localStorage.setItem("dream-trees-theme", "dark"));
+  await page.goto("/");
+  const ReviewColor = await page.locator(".review-card p").first().evaluate((Element) => getComputedStyle(Element).color);
+  expect(ReviewColor).toMatch(/rgba?\((?:1[89]\d|2\d\d)/);
+  await page.goto(ProductRoute);
+  const BuyBorder = await page.locator(".buy-box").evaluate((Element) => parseFloat(getComputedStyle(Element).borderTopWidth));
+  expect(BuyBorder).toBe(0);
+});
+
+test("mobile product cards start with the image and storytelling copy is not squeezed", async ({ page }) => {
+  await page.setViewportSize({ width: 360, height: 800 });
+  await page.goto("/catalog");
+  const CardBox = await page.locator(".catalog-grid .product-card").first().boundingBox();
+  const MediaBox = await page.locator(".catalog-grid .product-card .product-media").first().boundingBox();
+  expect(Math.abs((MediaBox?.y ?? 0) - (CardBox?.y ?? 0))).toBeLessThanOrEqual(1);
+  await page.goto("/");
+  const WhyCard = await page.locator(".why-list article").first().boundingBox();
+  const WhyCopy = await page.locator(".why-card-copy").first().boundingBox();
+  expect((WhyCopy?.width ?? 0) / (WhyCard?.width ?? 1)).toBeGreaterThan(0.55);
+  const ProcessCard = await page.locator(".process-grid article").first().boundingBox();
+  const ProcessCopy = await page.locator(".process-card-copy").first().boundingBox();
+  expect((ProcessCopy?.width ?? 0) / (ProcessCard?.width ?? 1)).toBeGreaterThan(0.7);
+});
+
+test("scroll lock does not shrink mobile fullscreen overlays", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/catalog");
+  await page.locator(".menu-button").click();
+  const BodyPaddingRight = await page.locator("body").evaluate((Element) => Number.parseFloat(getComputedStyle(Element).paddingRight) || 0);
+  const MenuBox = await page.locator(".mobile-menu-panel").boundingBox();
+  expect(BodyPaddingRight).toBeLessThanOrEqual(1);
+  expect(MenuBox?.width ?? 0).toBeGreaterThanOrEqual(389);
+});
+
+test("quick add stays above the header and traps keyboard focus", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/catalog");
+  const QuickAddButton = page.locator(".catalog-grid .quick-add-button").first();
+  await QuickAddButton.click();
+  await expect(page.locator(".quick-add-shell.is-open")).toBeVisible();
+  const QuickAddAtRoot = await page.locator(".quick-add-shell.is-open").evaluate((Element) => Element.parentElement === document.body);
+  expect(QuickAddAtRoot).toBe(true);
+  const QuickAddZIndex = await page.locator(".quick-add-shell.is-open").evaluate((Element) => Number.parseInt(getComputedStyle(Element).zIndex || "0", 10));
+  const HeaderZIndex = await page.locator(".site-header").evaluate((Element) => Number.parseInt(getComputedStyle(Element).zIndex || "0", 10));
+  expect(QuickAddZIndex).toBeGreaterThan(HeaderZIndex);
+  await expect(page.locator(".quick-add-panel .icon-button")).toBeFocused();
+  await page.keyboard.press("Shift+Tab");
+  await expect(page.locator(".quick-add-confirm")).toBeFocused();
+  await page.keyboard.press("Tab");
+  await expect(page.locator(".quick-add-panel .icon-button")).toBeFocused();
+  await page.keyboard.press("Escape");
+  await expect(QuickAddButton).toBeFocused();
+});
+
+test("mobile filters trap focus and restore it after closing", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/catalog");
+  const FilterButton = page.locator(".mobile-filter-button");
+  await FilterButton.click();
+  await expect(page.locator(".filter-drawer.is-open")).toBeVisible();
+  const FilterAtRoot = await page.locator(".filter-drawer.is-open").evaluate((Element) => Element.parentElement === document.body);
+  expect(FilterAtRoot).toBe(true);
+  await expect(page.locator(".mobile-filter-panel .drawer-header .icon-button")).toBeFocused();
+  await page.keyboard.press("Shift+Tab");
+  await expect(page.locator(".mobile-filter-panel .filter-actions .button.primary")).toBeFocused();
+  await page.keyboard.press("Escape");
+  await expect(FilterButton).toBeFocused();
 });

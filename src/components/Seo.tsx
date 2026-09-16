@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { getSiteUrl, shopConfig } from "../config/shopConfig";
 import { useShop } from "../context/ShopContext";
+import { resolvePublicAsset } from "../utils/assets";
 
 type SeoProps = {
   title: string;
@@ -45,7 +46,7 @@ export function Seo({ title, description, image = shopConfig.seo.defaultImage, j
     const SiteOrigin = getSiteUrl() || window.location.origin;
     const Canonical = `${SiteOrigin}${location.pathname}`;
     const FullTitle = title.includes(Brand) ? title : `${title} | ${Brand}`;
-    const ImageUrl = image.startsWith("http") ? image : `${SiteOrigin}${image}`;
+    const ImageUrl = image.startsWith("http") ? image : new URL(resolvePublicAsset(image) || image, window.location.origin).href;
 
     document.documentElement.lang = locale === "ru" ? "ru" : "kk";
     document.title = FullTitle;
