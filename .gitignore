@@ -10,3 +10,6 @@ playwright-report/
 test-results/
 *.log
 *.tsbuildinfo
+visual-check.mjs
+visual-diff*
+.vite

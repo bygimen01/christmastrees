@@ -1,4 +1,4 @@
-import rawProducts from "../../data/products.js";
+import rawProducts from "../../data/products";
 import { currencyConfig, getPrice } from "../config/currency";
 import { shopConfig } from "../config/shopConfig";
 import { getCategoryLabel, getProductSummary, getProductTitle, getTypeLabel } from "../i18n/content";
