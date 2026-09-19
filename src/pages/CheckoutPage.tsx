@@ -1,8 +1,8 @@
 import { ArrowLeft, MessageCircle, Phone, Send, ShieldCheck } from "lucide-react";
 import { FormEvent, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { SmartImage } from "../components/SmartImage";
-import { Seo } from "../components/Seo";
+import { SmartImage } from "../components/SmartImage/SmartImage";
+import { Seo } from "../components/Seo/Seo";
 import { formatMoney } from "../config/currency";
 import { useShop } from "../context/ShopContext";
 import { getOrderApiUrl, shopConfig } from "../config/shopConfig";

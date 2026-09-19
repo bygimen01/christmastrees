@@ -39,7 +39,7 @@ Optional custom public website URL.
 
 Example:
 
-`https://dream-trees.kz`
+`https://christmas-trees.kz`
 
 If it is not configured, the workflow automatically uses the GitHub Pages URL for canonical URLs and the generated sitemap.
 
@@ -49,7 +49,7 @@ Public HTTPS URL of the order API.
 
 Example:
 
-`https://dream-trees-api.vercel.app/api/order`
+`https://christmas-trees-api.vercel.app/api/order`
 
 GitHub Pages only hosts static frontend files. It cannot execute `api/order.js`, so Telegram orders require the API to be deployed separately on Vercel, Netlify, Cloudflare Workers, a Node server, or another backend host.
 

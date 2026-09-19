@@ -1,6 +1,6 @@
 import { ArrowRight, Clock3, Instagram, Mail, MapPin, MessageCircle, Phone, Send } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Seo } from "../components/Seo";
+import { Seo } from "../components/Seo/Seo";
 import { getLocalizedShopConfig, shopConfig } from "../config/shopConfig";
 import { useShop } from "../context/ShopContext";
 import { copy } from "../i18n/content";

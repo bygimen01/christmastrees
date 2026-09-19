@@ -52,10 +52,10 @@ function NormalizeCartItems(Value: unknown): CartItem[] {
 }
 
 export function ShopProvider({ children }: { children: ReactNode }) {
-  const [StoredLocale, setStoredLocale] = useLocalStorage<unknown>("dream-trees-locale", "ru");
-  const [StoredCurrency, setStoredCurrency] = useLocalStorage<unknown>("dream-trees-currency", "KZT");
-  const [StoredCartItems, setStoredCartItems] = useLocalStorage<unknown>("dream-trees-cart", []);
-  const [StoredTheme, setStoredTheme] = useLocalStorage<unknown>("dream-trees-theme", "light");
+  const [StoredLocale, setStoredLocale] = useLocalStorage<unknown>("christmas-trees-locale", "ru");
+  const [StoredCurrency, setStoredCurrency] = useLocalStorage<unknown>("christmas-trees-currency", "KZT");
+  const [StoredCartItems, setStoredCartItems] = useLocalStorage<unknown>("christmas-trees-cart", []);
+  const [StoredTheme, setStoredTheme] = useLocalStorage<unknown>("christmas-trees-theme", "light");
   const [cartOpen, setCartOpen] = useState(false);
 
   const locale: Locale = StoredLocale === "kk" ? "kk" : "ru";

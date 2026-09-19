@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Seo } from "../components/Seo";
+import { Seo } from "../components/Seo/Seo";
 import { useShop } from "../context/ShopContext";
 import { copy } from "../i18n/content";
 

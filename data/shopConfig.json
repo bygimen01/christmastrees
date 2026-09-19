@@ -27,7 +27,7 @@
   "contacts": {
     "phone": "+7 747 777 12 25",
     "phoneHref": "tel:+77477771225",
-    "email": "hello@dream-trees.kz",
+    "email": "hello@christmas-trees.kz",
     "telegram": "@dreamtrees_kz",
     "telegramUrl": "https://t.me/dreamtrees_kz",
     "whatsapp": "+7 747 777 12 25",
@@ -46,7 +46,7 @@
     "address": "Алматы, Казахстан"
   },
   "seo": {
-    "siteUrl": "https://dream-trees.kz",
+    "siteUrl": "https://christmas-trees.kz",
     "defaultImage": "/tree-placeholder.svg",
     "themeColor": "#102b21"
   },

@@ -63,7 +63,7 @@ test("delivery size link scrolls to the guide", async ({ page }) => {
 test("checkout remains responsive with a stored cart", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.addInitScript(() => {
-    window.localStorage.setItem("dream-trees-cart", JSON.stringify([{ productId: 1, quantity: 1 }]));
+    window.localStorage.setItem("christmas-trees-cart", JSON.stringify([{ productId: 1, quantity: 1 }]));
   });
   await page.goto("/checkout");
   await expect(page.locator(".checkout-form")).toBeVisible();
@@ -101,7 +101,7 @@ test("mobile menu stays open after its entrance animation and releases the page 
 test("mobile cart drawer uses the full viewport width", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.addInitScript(() => {
-    window.localStorage.setItem("dream-trees-cart", JSON.stringify([{ productId: 1, quantity: 1 }]));
+    window.localStorage.setItem("christmas-trees-cart", JSON.stringify([{ productId: 1, quantity: 1 }]));
   });
   await page.goto("/catalog");
   await page.locator(".cart-button").click();
@@ -261,7 +261,7 @@ test("the full product card opens the product while quick add stays interactive"
 
 test("dark reviews keep readable text and purchase controls have no tinted frame", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.addInitScript(() => window.localStorage.setItem("dream-trees-theme", "dark"));
+  await page.addInitScript(() => window.localStorage.setItem("christmas-trees-theme", "dark"));
   await page.goto("/");
   const ReviewColor = await page.locator(".review-card p").first().evaluate((Element) => getComputedStyle(Element).color);
   expect(ReviewColor).toMatch(/rgba?\((?:1[89]\d|2\d\d)/);

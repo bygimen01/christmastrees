@@ -2,8 +2,8 @@ import { Check, Search, SlidersHorizontal, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useSearchParams } from "react-router-dom";
-import { ProductCard } from "../components/ProductCard";
-import { Seo } from "../components/Seo";
+import { ProductCard } from "../components/ProductCard/ProductCard";
+import { Seo } from "../components/Seo/Seo";
 import { currencyConfig } from "../config/currency";
 import { useShop } from "../context/ShopContext";
 import {

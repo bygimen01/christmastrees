@@ -1,7 +1,7 @@
 import { ArrowRight, HelpCircle } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Accordion } from "../components/Accordion";
-import { Seo } from "../components/Seo";
+import { Accordion } from "../components/Accordion/Accordion";
+import { Seo } from "../components/Seo/Seo";
 import { useShop } from "../context/ShopContext";
 import { shopConfig } from "../config/shopConfig";
 import { copy } from "../i18n/content";

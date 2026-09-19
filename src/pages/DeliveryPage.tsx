@@ -1,6 +1,6 @@
 import { ArrowRight, CheckCircle2, Clock3, MapPin, PackageCheck, Ruler, Truck } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Seo } from "../components/Seo";
+import { Seo } from "../components/Seo/Seo";
 import { getLocalizedShopConfig, shopConfig } from "../config/shopConfig";
 import { useShop } from "../context/ShopContext";
 import { copy } from "../i18n/content";

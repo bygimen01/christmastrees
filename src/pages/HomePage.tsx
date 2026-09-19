@@ -1,11 +1,11 @@
 import { ArrowRight, CheckCircle2, Headphones, Leaf, Ruler, Search, ShieldCheck, ShoppingBag, Sparkles, Truck } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Accordion } from "../components/Accordion";
-import { ProductCard } from "../components/ProductCard";
-import { ReviewsCarousel } from "../components/ReviewsCarousel";
-import { SectionHeading } from "../components/SectionHeading";
-import { Seo } from "../components/Seo";
-import { SmartImage } from "../components/SmartImage";
+import { Accordion } from "../components/Accordion/Accordion";
+import { ProductCard } from "../components/ProductCard/ProductCard";
+import { ReviewsCarousel } from "../components/ReviewsCarousel/ReviewsCarousel";
+import { SectionHeading } from "../components/SectionHeading/SectionHeading";
+import { Seo } from "../components/Seo/Seo";
+import { SmartImage } from "../components/SmartImage/SmartImage";
 import { useShop } from "../context/ShopContext";
 import { getLocalizedShopConfig, getSiteUrl, shopConfig } from "../config/shopConfig";
 import { categories, createOrganizationJsonLd, getFamilyBySetId, getPopularFamilies, productFamilies } from "../data/catalog";
