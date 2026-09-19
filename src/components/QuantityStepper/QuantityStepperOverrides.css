@@ -1,0 +1,12 @@
+.quantity-stepper {
+  background: var(--stable-surface);
+  border-color: var(--stable-line);
+}
+
+:root[data-theme="dark"] .quantity-stepper,
+:root[data-theme="dark"] .quantity-stepper button,
+:root[data-theme="dark"] .quantity-stepper output {
+  background: #10261c;
+  color: #ffffff;
+  border-color: var(--stable-line);
+}

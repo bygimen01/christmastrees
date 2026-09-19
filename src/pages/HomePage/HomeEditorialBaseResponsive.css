@@ -1,0 +1,28 @@
+@media (max-width: 899px) {
+
+  .editorial-media {
+    min-height: 540px;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .editorial-section {
+    padding: 0 0 78px;
+  }
+
+  .editorial-grid {
+    gap: 34px;
+  }
+
+  .editorial-media {
+    min-height: 430px;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .editorial-media {
+    min-height: 390px;
+  }
+}

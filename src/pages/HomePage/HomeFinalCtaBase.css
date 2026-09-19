@@ -1,0 +1,108 @@
+.final-cta {
+  padding: 76px 0;
+}
+
+.final-cta-inner {
+  position: relative;
+  padding: clamp(26px, 6vw, 54px);
+  border-radius: var(--radius);
+  color: var(--surface);
+  background: var(--forest);
+  overflow: hidden;
+}
+
+.final-cta-inner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(184, 145, 75, 0.2), transparent 55%);
+  pointer-events: none;
+}
+
+.final-cta h2,
+.final-cta p,
+.final-cta a {
+  position: relative;
+  z-index: 1;
+}
+
+.final-cta h2 {
+  max-width: 780px;
+  color: var(--surface);
+}
+
+.final-cta p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.final-cta .button {
+  margin-top: 24px;
+  color: var(--forest);
+  background: var(--surface);
+}
+
+.final-cta {
+  padding: 36px 0 80px;
+  background: var(--surface);
+}
+
+.final-cta-inner {
+  min-height: 370px;
+  padding: 56px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 40px;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 75% 0%, rgba(188,157,106,0.24), transparent 20rem),
+    var(--forest);
+  overflow: hidden;
+}
+
+.final-cta h2 {
+  max-width: 760px;
+  margin-bottom: 18px;
+  color: #fff;
+}
+
+.final-cta p {
+  max-width: 600px;
+  margin: 0;
+  color: rgba(255,255,255,0.62);
+}
+
+.final-cta .button.primary {
+  flex: 0 0 auto;
+  color: var(--forest);
+  background: #fff;
+}
+
+:root[data-theme="dark"] .final-cta {
+  background: #07120e !important;
+}
+
+:root[data-theme="dark"] .final-cta-inner {
+  color: #f4eee2;
+  border: 1px solid rgba(212, 173, 97, 0.22);
+  background: linear-gradient(135deg, #173427 0%, #10251c 58%, #1b3025 100%) !important;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.3);
+}
+
+:root[data-theme="dark"] .final-cta-inner::after {
+  background: linear-gradient(90deg, rgba(212, 173, 97, 0.13), transparent 56%);
+}
+
+:root[data-theme="dark"] .final-cta h2 {
+  color: #f6f0e5 !important;
+}
+
+:root[data-theme="dark"] .final-cta p {
+  color: #b3beb6 !important;
+}
+
+:root[data-theme="dark"] .final-cta .button {
+  color: #102119;
+  border-color: #eadfc9;
+  background: #eadfc9;
+}

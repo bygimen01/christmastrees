@@ -1,0 +1,137 @@
+@media (min-width: 768px) {
+
+  .checkout-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 410px);
+    align-items: start;
+  }
+
+  .order-summary {
+    position: sticky;
+    top: calc(var(--header-height) + 18px);
+  }
+}
+
+@media (max-width: 380px) {
+
+  .summary-lines article {
+    grid-template-columns: 52px 1fr;
+  }
+
+  .summary-lines b {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 1120px) {
+
+  .checkout-layout {
+    gap: 42px;
+  }
+}
+
+@media (max-width: 899px) {
+
+  .checkout-topbar {
+    margin-bottom: 36px;
+  }
+
+  .order-summary {
+    position: static;
+    order: -1;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .checkout-section {
+    padding: 30px 0 78px;
+  }
+
+  .checkout-topbar {
+    margin-bottom: 36px;
+  }
+
+  .checkout-main > h1 {
+    font-size: clamp(3rem, 13vw, 4.4rem);
+  }
+
+  .checkout-form-section,
+  .order-summary {
+    padding: 22px;
+    border-radius: 18px;
+  }
+
+  .summary-lines article {
+    grid-template-columns: 58px 1fr auto;
+  }
+
+  .summary-lines img {
+    width: 58px;
+    height: 68px;
+  }
+}
+
+@media (max-width: 899px) {
+  .checkout-layout .order-summary {
+    order: initial;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .checkout-form-section,
+  .order-summary {
+    padding: 18px;
+  }
+
+  .summary-lines article {
+    grid-template-columns: 54px minmax(0, 1fr) auto;
+    gap: 10px;
+  }
+
+  .summary-lines article > * {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .order-summary {
+    padding: 20px 16px !important;
+    border-radius: 20px !important;
+  }
+
+  .order-summary-heading {
+    margin-bottom: 14px !important;
+  }
+
+  .summary-lines {
+    gap: 12px !important;
+  }
+
+  .summary-lines article {
+    grid-template-columns: 52px minmax(0, 1fr) auto !important;
+    gap: 10px !important;
+    padding-bottom: 12px !important;
+  }
+
+  .summary-lines img {
+    width: 52px !important;
+    height: 52px !important;
+    border-radius: 12px !important;
+  }
+
+  .summary-lines strong {
+    font-size: 0.9rem !important;
+  }
+
+  .summary-lines span {
+    font-size: 0.75rem !important;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .order-summary { padding: 20px 16px !important; }
+  .summary-lines article { grid-template-columns: 52px minmax(0, 1fr) auto !important; gap: 10px !important; }
+}

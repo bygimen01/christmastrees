@@ -1,0 +1,118 @@
+.catalog-sidebar {
+  position: static !important;
+  top: auto !important;
+  align-self: start;
+}
+
+.catalog-toolbar {
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+}
+
+.filter-form {
+  display: grid;
+  gap: 20px;
+}
+
+.filter-group {
+  padding: 0 0 18px;
+  margin: 0;
+  border: 0;
+}
+
+.filter-group + .filter-group {
+  border-top: 1px solid var(--stable-line);
+  padding-top: 18px;
+}
+
+.filter-group label,
+.filter-group legend,
+.filter-label {
+  color: var(--stable-text);
+}
+
+.search-input-wrap,
+.price-inputs input {
+  background: var(--stable-surface);
+  border-color: var(--stable-line);
+  color: var(--stable-text);
+}
+
+:root[data-theme="dark"] .search-input-wrap,
+:root[data-theme="dark"] .price-inputs input {
+  background: #0b1d15;
+}
+
+.search-input-wrap input {
+  color: inherit;
+}
+
+.category-filter-list {
+  display: grid;
+  gap: 2px;
+}
+
+.category-filter-list button {
+  min-height: 38px;
+  padding: 8px 4px;
+  color: var(--stable-muted);
+}
+
+.category-filter-list button.is-active {
+  color: var(--stable-text);
+  font-weight: 800;
+}
+
+.height-filter-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.height-filter-grid button {
+  min-width: 0;
+  min-height: 38px;
+  border-radius: 12px;
+  border: 1px solid var(--stable-line);
+  background: var(--stable-surface);
+  color: var(--stable-text);
+}
+
+.height-filter-grid button.is-active {
+  background: #174a36;
+  border-color: #174a36;
+  color: #fff;
+}
+
+:root[data-theme="dark"] .height-filter-grid button {
+  background: #10261c;
+}
+
+:root[data-theme="dark"] .height-filter-grid button.is-active {
+  background: #4c8c65;
+  color: #fff;
+}
+
+.filter-checkbox {
+  border-top: 1px solid var(--stable-line);
+  padding-top: 18px;
+  color: var(--stable-muted);
+}
+
+.catalog-toolbar {
+  padding: 0 0 18px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--stable-line);
+  background: transparent;
+  box-shadow: none;
+}
+
+.catalog-count,
+.sort-control {
+  color: var(--stable-muted);
+}
+
+.sort-control select {
+  background: var(--stable-surface);
+}

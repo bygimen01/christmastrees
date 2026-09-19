@@ -1,0 +1,16 @@
+@media (max-width: 680px) {
+  .theme-toggle:not(.is-compact) {
+    width: 100%;
+    min-height: 42px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seasonal-decoration,
+  .seasonal-ornament,
+  .seasonal-garland i,
+  .theme-toggle {
+    animation: none !important;
+    transform: none !important;
+  }
+}

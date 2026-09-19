@@ -1,0 +1,208 @@
+@media (max-width: 899px) {
+
+  .gallery-main {
+    aspect-ratio: 1;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .gallery-main {
+    margin-inline: -11px;
+    border-radius: 0;
+  }
+
+  .gallery-thumbs {
+    display: flex;
+    overflow-x: auto;
+    gap: 8px;
+    scrollbar-width: none;
+  }
+
+  .gallery-thumbs button {
+    width: 68px;
+    flex: 0 0 68px;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .gallery-main {
+    margin-inline: 0;
+    aspect-ratio: 1 / 1.06;
+    border-radius: 18px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .gallery-main-image:hover img {
+    transform: scale(1.015);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .gallery-main:hover .gallery-inline-nav {
+    opacity: 1;
+  }
+
+  .gallery-inline-nav:hover {
+    transform: translateY(-50%) scale(1.04);
+  }
+}
+
+@media (max-width: 680px) {
+
+  .gallery-main {
+    aspect-ratio: 1 / 1.04;
+    border-radius: 18px;
+  }
+
+  .gallery-inline-nav {
+    display: none;
+  }
+
+  .gallery-thumbs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 0 1px 3px;
+    scrollbar-width: none;
+  }
+
+  .gallery-thumbs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gallery-thumbs button {
+    width: 72px;
+    height: 72px;
+    flex: 0 0 72px;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .category-card .smart-image,
+  .category-card > img,
+  .editorial-media .smart-image,
+  .editorial-media > img,
+  .product-detail-visual img {
+    animation: image-scroll-breathe linear both;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .product-detail-visual:hover img {
+    transform: scale(1.035);
+    filter: saturate(1.05) contrast(1.02);
+  }
+}
+
+@media (max-width: 1120px) {
+
+  .product-layout-bento > .product-detail-visual {
+    grid-column: 1 / 5;
+  }
+}
+
+@media (max-width: 899px) {
+
+  .product-layout-bento > .product-gallery,
+  .product-layout-bento > .product-info,
+  .product-layout-bento > .product-mosaic-story,
+  .product-layout-bento > .product-mosaic-specs,
+  .product-layout-bento > .product-detail-visual,
+  .product-layout-bento > .product-mosaic-delivery,
+  .product-layout-bento > .product-mosaic-faq {
+    grid-column: 1;
+  }
+  .product-layout-bento > .product-detail-visual { order: 5; }
+
+  .product-detail-visual,
+  .product-detail-visual img {
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .product-detail-visual,
+  .product-detail-visual img {
+    min-height: 250px;
+    border-radius: 19px;
+  }
+
+  .product-detail-visual > div {
+    right: 17px;
+    bottom: 17px;
+    left: 17px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seasonal-symbol,
+  .seasonal-bauble,
+  .seasonal-scroll-progress,
+  .product-detail-visual img,
+  .process-grid::after,
+  .process-grid article::after {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .category-card,
+  .editorial-media,
+  .product-detail-visual {
+    animation: premium-unmask linear both;
+    animation-timeline: view();
+    animation-range: entry 6% cover 34%;
+  }
+}
+
+@media (max-width: 1100px) {
+
+  .product-layout-bento > .product-gallery,
+  .product-layout-bento > .product-info,
+  .product-layout-bento > .product-mosaic-story,
+  .product-layout-bento > .product-mosaic-specs,
+  .product-layout-bento > .product-detail-visual,
+  .product-layout-bento > .product-mosaic-delivery,
+  .product-layout-bento > .product-mosaic-faq {
+    grid-column: span 12;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .gallery-main,
+  .gallery-main-image {
+    border-radius: 18px !important;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .product-layout-bento > .product-gallery,
+  .product-layout-bento > .product-info,
+  .product-layout-bento > .product-mosaic-story,
+  .product-layout-bento > .product-mosaic-specs,
+  .product-layout-bento > .product-detail-visual,
+  .product-layout-bento > .product-mosaic-delivery,
+  .product-layout-bento > .product-mosaic-faq {
+    width: 100% !important;
+    max-width: none !important;
+    margin-inline: 0 !important;
+  }
+
+  .gallery-main,
+  .gallery-main-image {
+    width: 100% !important;
+  }
+
+  .gallery-thumbs {
+    gap: 8px !important;
+  }
+}

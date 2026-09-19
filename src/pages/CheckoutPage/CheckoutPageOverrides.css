@@ -1,0 +1,54 @@
+.button.primary,
+.product-buy-button,
+.checkout-submit,
+.mobile-sticky-cta button {
+  background: #0e3023;
+  color: #fffdf8;
+  border-color: #0e3023;
+}
+
+.button.primary:hover,
+.product-buy-button:hover,
+.checkout-submit:hover,
+.mobile-sticky-cta button:hover {
+  background: #194735;
+  border-color: #194735;
+}
+
+.checkout-section {
+  background: var(--bg);
+}
+
+.checkout-form-section,
+.order-summary {
+  background: var(--stable-surface);
+  border: 1px solid var(--stable-line);
+  box-shadow: var(--stable-shadow);
+}
+
+.checkout-form-section {
+  padding: 30px;
+}
+
+.order-summary {
+  align-self: start;
+  position: sticky;
+  top: calc(var(--header-height) + 24px);
+}
+
+.field > span,
+.form-section-heading h2,
+.order-summary h2,
+.order-summary strong,
+.subtotal-row strong {
+  color: var(--stable-text);
+}
+
+.checkout-lead,
+.form-section-heading p,
+.order-summary-note,
+.summary-lines span,
+.subtotal-row span,
+.checkout-security {
+  color: var(--stable-muted);
+}

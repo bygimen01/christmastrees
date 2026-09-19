@@ -1,0 +1,59 @@
+@media (max-width: 899px) {
+
+  .footer-main {
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .footer-bottom {
+    display: grid;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 1120px) {
+  .footer-main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-bottom: 36px;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .catalog-hero .container,
+  .info-hero .container,
+  .info-section .container,
+  .faq-section .container,
+  .reviews-section .container,
+  .category-section .container,
+  .popular-section .container,
+  .editorial-section .container,
+  .why-section .container,
+  .process-section .container,
+  .final-cta .container,
+  .site-footer .container {
+    width: min(100% - 36px, var(--container)) !important;
+  }
+}

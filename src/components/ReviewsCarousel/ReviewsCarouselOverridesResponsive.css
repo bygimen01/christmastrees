@@ -1,0 +1,70 @@
+@media (max-width: 680px) {
+
+  .hero-section,
+  .section-block,
+  .editorial-section,
+  .why-section,
+  .reviews-section,
+  .faq-section,
+  .final-cta,
+  .info-section,
+  .catalog-section,
+  .product-page,
+  .checkout-section {
+    overflow: clip;
+  }
+
+  .reviews-layout {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .reviews-heading {
+    display: grid;
+    gap: 12px;
+  }
+
+  .reviews-heading h2 {
+    margin: 0;
+  }
+
+  .reviews-controls {
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .reviews-track {
+    gap: 12px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .review-card {
+    flex: 0 0 calc(100vw - 56px);
+    min-width: 0;
+    padding: 20px;
+    scroll-snap-align: start;
+  }
+
+  .review-card p {
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  .review-card-top,
+  .review-card-footer {
+    gap: 10px;
+  }
+
+  .photo-review-track {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+
+  .review-card {
+    flex-basis: calc(100vw - 36px);
+  }
+}

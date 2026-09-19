@@ -1,0 +1,10 @@
+html,
+body,
+.page-shell {
+  background: var(--bg);
+  color: var(--stable-text);
+}
+
+.container {
+  width: min(calc(100% - 40px), 1240px);
+}

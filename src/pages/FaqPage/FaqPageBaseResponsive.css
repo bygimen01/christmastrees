@@ -1,0 +1,14 @@
+@media (max-width: 899px) {
+
+  .info-hero-grid,
+  .size-guide-layout,
+  .faq-page-layout {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .size-guide-copy,
+  .faq-page-layout > aside {
+    position: static;
+  }
+}

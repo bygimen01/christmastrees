@@ -1,0 +1,8 @@
+@media (max-width: 680px) {
+
+  .success-card,
+  .not-found-section .empty-state {
+    padding: 38px 22px;
+    border-radius: 22px;
+  }
+}

@@ -1,0 +1,22 @@
+.process-section {
+  background: var(--bg);
+}
+
+.process-grid article {
+  background: var(--stable-surface);
+  border: 1px solid var(--stable-line);
+  box-shadow: var(--stable-shadow);
+}
+
+.process-card-icon {
+  color: var(--gold);
+  background: color-mix(in srgb, var(--gold) 10%, transparent);
+}
+
+.process-grid h3 {
+  color: var(--stable-text);
+}
+
+.process-grid p {
+  color: var(--stable-muted);
+}

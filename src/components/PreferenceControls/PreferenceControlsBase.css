@@ -1,0 +1,85 @@
+.preference-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.preference-controls.is-compact {
+  display: none;
+}
+
+.segmented-control {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.segmented-control button {
+  min-width: 34px;
+  height: 32px;
+  border: 0;
+  border-radius: 6px;
+  color: var(--muted);
+  background: transparent;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.segmented-control button.is-active {
+  color: var(--surface);
+  background: var(--forest);
+}
+
+.preference-controls {
+  gap: 7px;
+}
+
+.segmented-control {
+  background: rgba(16, 43, 33, 0.05);
+  border: 1px solid rgba(16, 43, 33, 0.08);
+  padding: 3px;
+  border-radius: 999px;
+}
+
+.segmented-control button {
+  min-width: 40px;
+  height: 32px;
+  border-radius: 999px;
+  border: 0;
+  color: #5e675f;
+  background: transparent;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.segmented-control button.is-active {
+  color: var(--forest);
+  background: var(--surface);
+  box-shadow: 0 3px 14px rgba(20, 32, 25, 0.08);
+}
+
+.currency-control {
+  flex: 0 0 auto;
+}
+
+:root[data-theme="dark"] .icon-button,
+:root[data-theme="dark"] .segmented-control,
+:root[data-theme="dark"] .theme-toggle,
+:root[data-theme="dark"] .variant-button,
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] select,
+:root[data-theme="dark"] textarea {
+  color: var(--charcoal);
+  border-color: var(--line);
+  background: rgba(255,255,255,.045);
+}
+
+:root[data-theme="dark"] .segmented-control button.is-active,
+:root[data-theme="dark"] .theme-toggle:hover,
+:root[data-theme="dark"] .icon-button:hover {
+  color: #0d1713;
+  background: #edf5f0;
+}

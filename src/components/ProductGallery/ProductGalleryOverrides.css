@@ -1,0 +1,25 @@
+:root[data-theme="dark"] .product-card,
+:root[data-theme="dark"] .product-info,
+:root[data-theme="dark"] .product-mosaic-story,
+:root[data-theme="dark"] .product-mosaic-specs,
+:root[data-theme="dark"] .product-detail-visual,
+:root[data-theme="dark"] .product-mosaic-delivery,
+:root[data-theme="dark"] .product-mosaic-faq,
+:root[data-theme="dark"] .order-summary,
+:root[data-theme="dark"] .checkout-form-section,
+:root[data-theme="dark"] .accordion-item,
+:root[data-theme="dark"] .contact-method-card,
+:root[data-theme="dark"] .contact-business-card {
+  background: var(--stable-surface);
+  border-color: var(--stable-line);
+  color: var(--stable-text);
+}
+
+.product-info,
+.product-mosaic-story,
+.product-mosaic-specs,
+.product-mosaic-delivery,
+.product-mosaic-faq,
+.product-detail-visual {
+  box-shadow: var(--stable-shadow);
+}

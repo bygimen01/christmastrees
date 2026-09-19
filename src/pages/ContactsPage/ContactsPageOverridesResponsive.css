@@ -1,0 +1,24 @@
+@media (max-width: 680px) {
+
+  .contact-methods {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-method-grid,
+  .info-step-grid,
+  .size-guide-list,
+  .delivery-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-method-card,
+  .info-step-grid article,
+  .delivery-facts > div {
+    min-height: 0;
+  }
+
+  .contact-business-card {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}

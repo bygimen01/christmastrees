@@ -1,0 +1,92 @@
+@media (max-width: 899px) {
+
+  .delivery-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .delivery-facts > div {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .delivery-facts > div:last-child {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .delivery-facts {
+    margin-bottom: 42px;
+  }
+
+  .delivery-facts > div {
+    padding: 19px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+  .product-layout-bento > .product-story:hover,
+  .product-layout-bento > .product-specs-card:hover,
+  .product-layout-bento > .delivery-card:hover,
+  .product-layout-bento > .product-faq-card:hover {
+    border-color: rgba(184, 145, 75, 0.24);
+    box-shadow: 0 20px 54px rgba(16, 43, 33, 0.075);
+  }
+}
+
+@media (max-width: 680px) {
+
+  .product-layout-bento > .product-story,
+  .product-layout-bento > .product-specs-card,
+  .product-layout-bento > .delivery-card,
+  .product-layout-bento > .product-faq-card {
+    padding: 22px 20px;
+    border-radius: 19px;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .product-layout-bento > .product-story,
+  .product-layout-bento > .product-specs-card,
+  .product-layout-bento > .delivery-card,
+  .product-layout-bento > .product-faq-card {
+    padding: 18px 14px !important;
+    border-radius: 18px !important;
+  }
+}
+
+@media (max-width: 380px) {
+
+  .product-layout-bento > .product-story,
+  .product-layout-bento > .product-specs-card,
+  .product-layout-bento > .delivery-card,
+  .product-layout-bento > .product-faq-card,
+  .product-info {
+    padding-inline: 12px !important;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .product-layout-bento > .product-story,
+  .product-layout-bento > .product-specs-card,
+  .product-layout-bento > .delivery-card,
+  .product-layout-bento > .product-faq-card {
+    padding: 18px 16px !important;
+    border-radius: 18px !important;
+  }
+}
+
+@media (max-width: 380px) {
+
+  .product-layout-bento > .product-story,
+  .product-layout-bento > .product-specs-card,
+  .product-layout-bento > .delivery-card,
+  .product-layout-bento > .product-faq-card,
+  .product-info {
+    padding-inline: 14px !important;
+  }
+}

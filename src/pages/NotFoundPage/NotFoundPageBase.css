@@ -1,0 +1,15 @@
+.success-section,
+.not-found-section {
+  min-height: 70svh;
+  display: grid;
+  place-items: center;
+  padding: 72px 0;
+}
+
+.success-section,
+.not-found-section {
+  min-height: 72svh;
+  padding: 90px 0;
+  display: grid;
+  place-items: center;
+}

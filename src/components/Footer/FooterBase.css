@@ -1,0 +1,138 @@
+.brand-link,
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  font-weight: 900;
+  color: var(--forest);
+}
+
+.brand-link,
+.footer-brand {
+  gap: 11px;
+  color: var(--forest);
+}
+
+.site-footer {
+  padding: 72px 0 22px;
+  background: #0d251c;
+  color: rgba(255,255,255,0.74);
+}
+
+.footer-main {
+  display: grid;
+  grid-template-columns: 1.7fr .7fr .8fr;
+  gap: 70px;
+  padding-bottom: 55px;
+}
+
+.site-footer .footer-brand {
+  color: #fff;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+}
+
+.footer-brand-column > p {
+  max-width: 420px;
+  margin: 20px 0 24px;
+  color: rgba(255,255,255,0.54);
+}
+
+.site-footer .segmented-control {
+  border-color: rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+}
+
+.site-footer .segmented-control button {
+  color: rgba(255,255,255,0.58);
+}
+
+.site-footer .segmented-control button.is-active {
+  color: var(--forest);
+}
+
+.footer-links-column h2 {
+  margin-bottom: 18px;
+  color: #fff;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.footer-links-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links-column a,
+.footer-links-column p {
+  color: rgba(255,255,255,0.56);
+  font-size: 0.86rem;
+}
+
+.footer-links-column a:hover {
+  color: #fff;
+}
+
+.footer-order-link {
+  margin-top: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-bottom {
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.4);
+  font-size: 0.72rem;
+}
+
+.site-footer {
+  padding-top: 62px;
+}
+
+.footer-main {
+  grid-template-columns: minmax(260px, 1.35fr) minmax(130px, 0.56fr) minmax(210px, 0.82fr) minmax(210px, 0.82fr);
+  gap: 42px;
+  padding-bottom: 46px;
+}
+
+.footer-links-column a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-contact-column a {
+  width: fit-content;
+}
+
+.footer-order-column p {
+  margin: 0;
+}
+
+.footer-location {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.footer-location svg {
+  flex: 0 0 auto;
+  margin-top: 3px;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 0 4px;
+  color: rgba(255, 255, 255, 0.46);
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 500;
+}

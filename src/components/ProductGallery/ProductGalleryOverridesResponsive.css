@@ -1,0 +1,10 @@
+@media (max-width: 680px) {
+
+  .gallery-main {
+    border-radius: 20px;
+  }
+
+  .gallery-thumbs {
+    gap: 8px;
+  }
+}

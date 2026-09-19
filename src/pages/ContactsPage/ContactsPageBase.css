@@ -1,0 +1,399 @@
+.contact-methods {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.contact-methods label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 42px;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  font-weight: 800;
+}
+
+.contact-methods input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--forest);
+}
+
+.contact-methods {
+  margin: 0 0 18px;
+  padding: 0;
+  border: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 8px;
+}
+
+.contact-methods label {
+  min-height: 66px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: #58625b;
+  background: #fff;
+  cursor: pointer;
+  font-size: .76rem;
+  font-weight: 700;
+}
+
+.contact-methods label.is-active {
+  border-color: var(--forest);
+  color: #fff;
+  background: var(--forest);
+}
+
+.contact-methods input {
+  position: absolute;
+  opacity: 0;
+}
+
+.info-section-heading h2,
+.size-guide-copy h2,
+.faq-page-layout > aside h2,
+.contact-note h2 {
+  margin: 0;
+  color: var(--forest);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+}
+
+.info-step-grid,
+.contact-method-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.info-step-grid article,
+.contact-method-grid article {
+  position: relative;
+  min-width: 0;
+  padding: 34px 30px 38px;
+  border-right: 1px solid var(--line);
+}
+
+.info-step-grid article:last-child,
+.contact-method-grid article:last-child {
+  border-right: 0;
+}
+
+.info-step-grid h3,
+.contact-method-grid h3 {
+  margin: 38px 0 10px;
+  color: var(--forest);
+  font-size: 1.18rem;
+}
+
+.info-step-grid p,
+.contact-method-grid p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.contact-note {
+  margin-top: 64px;
+  padding: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 42px;
+  border-radius: 24px;
+  color: var(--surface);
+  background: var(--forest);
+}
+
+.contact-note > div:first-child {
+  max-width: 760px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.contact-note .info-card-icon {
+  flex: 0 0 auto;
+  color: var(--forest);
+  background: var(--surface);
+}
+
+.contact-note h2 {
+  color: var(--surface);
+  font-size: clamp(1.9rem, 3vw, 3rem);
+}
+
+.contact-note p {
+  margin: 12px 0 0;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.65;
+}
+
+.contact-note-actions {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.contact-note .button.primary {
+  color: var(--forest);
+  background: var(--surface);
+  box-shadow: none;
+}
+
+.contact-note .button.secondary {
+  color: var(--surface);
+  border-color: rgba(255, 255, 255, 0.3);
+  background: transparent;
+}
+
+.contact-method-grid.is-production {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.contact-method-card {
+  position: relative;
+  min-width: 0;
+  padding: 28px 24px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  border-right: 1px solid var(--line);
+  color: var(--forest);
+  transition: background 200ms var(--ease), transform 200ms var(--ease);
+}
+
+.contact-method-card:last-child {
+  border-right: 0;
+}
+
+.contact-method-card > .info-card-icon {
+  grid-column: 1 / -1;
+}
+
+.contact-method-card h3 {
+  margin: 0 0 4px;
+  font-size: 0.98rem;
+}
+
+.contact-method-card strong {
+  display: block;
+  overflow-wrap: anywhere;
+  font-size: 0.77rem;
+}
+
+.contact-method-card p {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 0.74rem;
+  line-height: 1.55;
+}
+
+.contact-method-card > svg {
+  align-self: center;
+  color: var(--gold);
+}
+
+.contact-business-card {
+  margin-top: 42px;
+  padding: 26px 28px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 26px;
+  border-radius: 20px;
+  color: #fff;
+  background: var(--forest);
+}
+
+.contact-business-card > div {
+  min-width: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.contact-business-card .info-card-icon {
+  flex: 0 0 auto;
+  color: var(--forest);
+  background: #fff;
+}
+
+.contact-business-card small,
+.contact-business-card strong,
+.contact-business-card span {
+  display: block;
+}
+
+.contact-business-card small {
+  color: var(--gold-soft);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.contact-business-card strong {
+  margin: 4px 0;
+  font-size: 0.9rem;
+}
+
+.contact-business-card span {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.72rem;
+}
+
+.contact-business-card .button.primary {
+  color: var(--forest);
+  background: #fff;
+  box-shadow: none;
+}
+
+.contact-business-card .info-card-icon {
+  width: 38px;
+  height: 38px;
+}
+
+.contact-business-card > div {
+  align-items: center;
+}
+
+.contact-business-card > div {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  align-items: center;
+  gap: 13px;
+}
+
+.contact-business-card .info-card-icon {
+  width: 36px;
+  height: 36px;
+  color: var(--gold-soft);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.contact-business-card > div > div {
+  min-width: 0;
+}
+
+.contact-business-card .info-card-icon,
+.info-card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-business-card > div {
+  align-items: center;
+}
+
+.contact-business-card > div > .info-card-icon {
+  align-self: center;
+  margin: 0;
+}
+
+.contact-method-card > .info-card-icon,
+.contact-business-card .info-card-icon {
+  align-self: center;
+  justify-self: center;
+}
+
+:root[data-theme="dark"] .hero-content p,
+:root[data-theme="dark"] .section-heading p,
+:root[data-theme="dark"] .why-heading p,
+:root[data-theme="dark"] .editorial-copy p,
+:root[data-theme="dark"] .faq-heading p,
+:root[data-theme="dark"] .info-hero-grid > p,
+:root[data-theme="dark"] .faq-page-layout > aside p,
+:root[data-theme="dark"] .product-mosaic-story p,
+:root[data-theme="dark"] .product-mosaic-delivery p,
+:root[data-theme="dark"] .contact-method-card p,
+:root[data-theme="dark"] .contact-business-card span,
+:root[data-theme="dark"] .contact-business-card small {
+  color: rgba(245, 241, 232, 0.72);
+}
+
+:root[data-theme="dark"] .contact-methods label {
+  color: #d8e0db;
+  border-color: rgba(239, 232, 218, 0.12);
+  background: #172b21;
+}
+
+:root[data-theme="dark"] .contact-methods label.is-active {
+  color: #07120e;
+  border-color: #d4ad61;
+  background: #e9dfcc;
+}
+
+:root[data-theme="dark"] .delivery-facts,
+:root[data-theme="dark"] .contact-business-card {
+  border-color: rgba(239, 232, 218, 0.11) !important;
+  background: #11231b !important;
+}
+
+:root[data-theme="dark"] .delivery-facts strong,
+:root[data-theme="dark"] .contact-business-card strong {
+  color: #f2eee5 !important;
+}
+
+:root[data-theme="dark"] .delivery-facts span,
+:root[data-theme="dark"] .contact-business-card span {
+  color: #9eaca4 !important;
+}
+
+:root[data-theme="dark"] .contact-method-card {
+  color: #f2eee5;
+  border-color: rgba(239, 232, 218, 0.1) !important;
+  background: #0f2018 !important;
+}
+
+:root[data-theme="dark"] .contact-method-card:hover {
+  color: #f8f3e9 !important;
+  background: #183126 !important;
+}
+
+:root[data-theme="dark"] .contact-method-card h3,
+:root[data-theme="dark"] .contact-method-card strong {
+  color: #f2eee5 !important;
+}
+
+:root[data-theme="dark"] .contact-methods label.is-active,
+:root[data-theme="dark"] .contact-methods label.is-active span,
+:root[data-theme="dark"] .contact-methods label.is-active svg {
+  color: #0a1812 !important;
+}
+
+:root[data-theme="dark"] .contact-methods label {
+  color: #e1e9e3 !important;
+  background: #142a20 !important;
+  border-color: rgba(239, 232, 218, 0.14) !important;
+}
+
+:root[data-theme="dark"] .contact-methods label.is-active {
+  color: #fffaf0 !important;
+  background: #3f7d5a !important;
+  border-color: #5b9b73 !important;
+}
+
+:root[data-theme="dark"] .contact-methods label.is-active span,
+:root[data-theme="dark"] .contact-methods label.is-active svg {
+  color: #fffaf0 !important;
+}

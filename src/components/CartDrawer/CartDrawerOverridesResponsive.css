@@ -1,0 +1,26 @@
+@media (max-width: 680px) {
+
+  .cart-drawer {
+    width: 100%;
+    max-width: none;
+    padding: 18px;
+  }
+
+  .cart-line {
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .cart-line-image {
+    width: 72px;
+    height: 90px;
+  }
+
+  .cart-line-bottom {
+    align-items: center;
+  }
+
+  .cart-summary {
+    margin-top: 14px !important;
+  }
+}

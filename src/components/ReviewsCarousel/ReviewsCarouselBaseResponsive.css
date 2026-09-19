@@ -1,0 +1,169 @@
+@media (min-width: 768px) {
+
+  .reviews-grid,
+  .process-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .photo-reviews {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1120px) {
+
+  .reviews-layout,
+  .faq-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .reviews-heading,
+  .faq-heading {
+    position: static;
+  }
+}
+
+@media (max-width: 899px) {
+
+  .reviews-grid {
+    grid-template-columns: repeat(3, minmax(260px,1fr));
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scroll-snap-type: x mandatory;
+  }
+
+  .review-card {
+    scroll-snap-align: start;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .reviews-section {
+    padding: 78px 0;
+  }
+
+  .reviews-grid {
+    grid-template-columns: repeat(3, minmax(82vw, 1fr));
+    gap: 10px;
+  }
+}
+
+@media (max-width: 1120px) {
+  .reviews-heading {
+    position: static;
+  }
+
+  .reviews-track {
+    grid-auto-columns: minmax(280px, calc((100% - 12px) / 2));
+  }
+}
+
+@media (max-width: 680px) {
+
+  .reviews-section {
+    padding: 66px 0;
+  }
+
+  .reviews-layout {
+    display: block;
+  }
+
+  .reviews-heading {
+    margin-bottom: 26px;
+  }
+
+  .reviews-heading h2 {
+    font-size: clamp(2.4rem, 11vw, 3.4rem);
+  }
+
+  .reviews-controls {
+    margin-top: 20px;
+  }
+
+  .reviews-track {
+    width: calc(100vw - 22px);
+    margin-right: calc((100vw - 100%) * -1);
+    grid-auto-columns: minmax(280px, 84vw);
+    gap: 10px;
+    padding-right: 22px;
+  }
+
+  .review-card {
+    min-height: 300px;
+    padding: 22px;
+  }
+}
+
+@media (max-width: 380px) {
+
+  .reviews-track {
+    grid-auto-columns: 88vw;
+  }
+}
+
+@media (max-width: 680px) {
+  .photo-review-track {
+    width: calc(100vw - 22px);
+    margin-right: calc((100vw - 100%) * -1);
+    grid-auto-columns: minmax(160px, 62vw);
+    padding-right: 22px;
+  }
+
+  .photo-review-card {
+    min-height: 220px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .photo-review-card:hover .photo-review-overlay {
+    background: linear-gradient(to top, rgba(5, 19, 13, 0.9), rgba(5, 19, 13, 0.02) 58%);
+  }
+
+  .photo-review-card:hover img {
+    transform: scale(1.035);
+  }
+}
+
+@media (max-width: 680px) {
+
+  .photo-review-track {
+    width: 100%;
+    margin-right: 0;
+    grid-auto-columns: minmax(160px, 72vw);
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 680px) {
+  .process-section::before,
+  .reviews-section::before,
+  .catalog-section::before {
+    opacity: 0.55;
+    transform: scale(0.72);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .process-section::before,
+  .reviews-section::before,
+  .catalog-section::before {
+    animation: none !important;
+  }
+}
+
+@supports (animation-timeline: view()) {
+
+  .why-section::before,
+  .process-section::before,
+  .reviews-section::before {
+    animation-name: ornament-orbit, ornament-view-bloom;
+    animation-duration: 26s, auto;
+    animation-timing-function: linear, linear;
+    animation-iteration-count: infinite, 1;
+    animation-fill-mode: none, both;
+    animation-timeline: auto, view();
+    animation-range: normal, entry 0% cover 48%;
+  }
+}

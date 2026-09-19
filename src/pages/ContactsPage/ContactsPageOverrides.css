@@ -1,0 +1,30 @@
+.field input,
+.field textarea,
+.contact-methods label {
+  background: var(--stable-surface);
+  color: var(--stable-text);
+  border-color: var(--stable-line);
+}
+
+:root[data-theme="dark"] .field input,
+:root[data-theme="dark"] .field textarea,
+:root[data-theme="dark"] .contact-methods label {
+  background: #0a1b14;
+}
+
+.contact-methods label.is-active {
+  background: #e9f2ec;
+  color: #123426;
+  border-color: #7fa58e;
+}
+
+:root[data-theme="dark"] .contact-methods label.is-active {
+  background: #244f3a;
+  color: #ffffff;
+  border-color: #5e9874;
+}
+
+.contact-business-card span,
+.contact-business-card small {
+  color: #9eaca4 !important;
+}

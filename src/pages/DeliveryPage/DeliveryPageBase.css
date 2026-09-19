@@ -1,0 +1,78 @@
+.product-story p,
+.delivery-card p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.details-card-heading h2,
+.delivery-card h2,
+.product-faq-card h2 {
+  color: var(--forest);
+  font-size: 1rem;
+}
+
+.delivery-card {
+  display: flex;
+  align-items: start;
+  gap: 18px;
+}
+
+.delivery-card > svg {
+  flex: 0 0 auto;
+  color: var(--gold);
+}
+
+.delivery-card p {
+  margin: 6px 0 0;
+  font-size: .8rem;
+}
+
+.delivery-facts {
+  margin-bottom: 62px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255, 253, 248, 0.68);
+}
+
+.delivery-facts > div {
+  min-width: 0;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 12px;
+  border-right: 1px solid var(--line);
+}
+
+.delivery-facts > div:last-child {
+  border-right: 0;
+}
+
+.delivery-facts svg {
+  grid-row: 1 / span 2;
+  color: var(--gold);
+}
+
+.delivery-facts span {
+  color: var(--muted);
+  font-size: 0.68rem;
+}
+
+.delivery-facts strong {
+  color: var(--forest);
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.product-layout-bento > .product-story,
+.product-layout-bento > .product-specs-card,
+.product-layout-bento > .delivery-card,
+.product-layout-bento > .product-faq-card {
+  padding: 30px;
+}
+
+:root[data-theme="dark"] .delivery-facts > div {
+  border-right-color: rgba(239, 232, 218, 0.1) !important;
+}

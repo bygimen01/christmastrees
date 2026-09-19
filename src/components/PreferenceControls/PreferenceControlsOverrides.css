@@ -1,0 +1,26 @@
+.icon-button,
+.button.ghost,
+.theme-toggle,
+.segmented-control,
+.segmented-control button,
+.sort-control select,
+.mobile-filter-button {
+  color: var(--stable-text);
+  border-color: var(--stable-line);
+}
+
+:root[data-theme="dark"] .icon-button,
+:root[data-theme="dark"] .button.ghost,
+:root[data-theme="dark"] .theme-toggle,
+:root[data-theme="dark"] .segmented-control,
+:root[data-theme="dark"] .sort-control select,
+:root[data-theme="dark"] .mobile-filter-button {
+  background: rgba(255,255,255,0.035);
+  color: var(--stable-text);
+  border-color: var(--stable-line);
+}
+
+:root[data-theme="dark"] .segmented-control button.is-active {
+  background: #f3eee2;
+  color: #0b1c14;
+}

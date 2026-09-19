@@ -1,0 +1,65 @@
+.info-hero h1,
+.info-section h2,
+.contact-method-card h3,
+.contact-method-card strong,
+.contact-business-card strong,
+.faq-page-layout h2,
+.accordion-trigger,
+.accordion-item button {
+  color: var(--stable-text);
+}
+
+.info-hero p,
+.contact-method-card p,
+.info-step-grid p,
+.size-guide-copy p,
+.size-guide-list p,
+.faq-page-layout p,
+.accordion-panel p {
+  color: var(--stable-muted);
+}
+
+.delivery-facts,
+.contact-business-card,
+.contact-method-card,
+.info-step-grid article,
+.size-guide-copy,
+.size-guide-list article,
+.faq-page-layout aside,
+.accordion-item {
+  border-color: var(--stable-line);
+}
+
+:root[data-theme="dark"] .info-hero h1,
+:root[data-theme="dark"] .info-section h2,
+:root[data-theme="dark"] .contact-method-card h3,
+:root[data-theme="dark"] .contact-method-card strong,
+:root[data-theme="dark"] .contact-business-card strong,
+:root[data-theme="dark"] .faq-page-layout h2,
+:root[data-theme="dark"] .accordion-trigger,
+:root[data-theme="dark"] .accordion-item button {
+  color: #fffdf7;
+}
+
+:root[data-theme="dark"] .info-hero p,
+:root[data-theme="dark"] .contact-method-card p,
+:root[data-theme="dark"] .contact-business-card span,
+:root[data-theme="dark"] .contact-business-card small,
+:root[data-theme="dark"] .info-step-grid p,
+:root[data-theme="dark"] .size-guide-copy p,
+:root[data-theme="dark"] .size-guide-list p,
+:root[data-theme="dark"] .faq-page-layout p,
+:root[data-theme="dark"] .accordion-panel p {
+  color: #bdc7c0;
+}
+
+:root[data-theme="dark"] .delivery-facts,
+:root[data-theme="dark"] .contact-business-card,
+:root[data-theme="dark"] .contact-method-card,
+:root[data-theme="dark"] .info-step-grid article,
+:root[data-theme="dark"] .size-guide-copy,
+:root[data-theme="dark"] .size-guide-list article,
+:root[data-theme="dark"] .faq-page-layout aside,
+:root[data-theme="dark"] .accordion-item {
+  background: #0d2118;
+}

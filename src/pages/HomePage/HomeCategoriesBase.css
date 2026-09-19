@@ -1,0 +1,118 @@
+.category-section {
+  background: #efe9de;
+}
+
+.category-showcase {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 310px;
+  gap: 16px;
+}
+
+.category-card {
+  position: relative;
+  grid-column: span 4;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #d9d1c3;
+}
+
+.category-card.is-large {
+  grid-column: span 8;
+  grid-row: span 2;
+}
+
+.category-card:nth-child(4),
+.category-card:nth-child(5) {
+  grid-column: span 6;
+}
+
+.category-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms var(--ease);
+}
+
+.category-card:hover img {
+  transform: scale(1.04);
+}
+
+.category-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(9, 26, 18, 0.72), rgba(9, 26, 18, 0.04) 65%);
+}
+
+.category-card-content {
+  position: absolute;
+  left: 24px;
+  right: 54px;
+  bottom: 22px;
+  z-index: 2;
+  color: #fff;
+}
+
+.category-card-content > span {
+  display: block;
+  margin-bottom: 8px;
+  color: rgba(255,255,255,0.65);
+  font-size: 0.7rem;
+}
+
+.category-card-content h3 {
+  margin: 0 0 7px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.65rem;
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+.category-card.is-large .category-card-content h3 {
+  font-size: clamp(2rem, 3vw, 3.4rem);
+}
+
+.category-card-content small {
+  font-size: 0.76rem;
+  opacity: 0.82;
+}
+
+.category-arrow {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  z-index: 2;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--forest);
+  background: rgba(255,255,255,0.88);
+  transition: transform 220ms var(--ease);
+}
+
+.category-card:hover .category-arrow {
+  transform: translate(2px, -2px);
+}
+
+.category-card::before,
+.editorial-media::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: -35% auto -35% -60%;
+  width: 34%;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transform: skewX(-18deg) translateX(-180%);
+  transition: transform 750ms var(--ease);
+}
+
+.category-showcase > [data-reveal]:nth-child(5) { transition-delay: 250ms; }
+
+.category-card::before,
+.editorial-media::before {
+  transition-duration: 1400ms !important;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
+}

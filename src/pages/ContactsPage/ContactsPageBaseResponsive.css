@@ -1,0 +1,163 @@
+@media (min-width: 560px) {
+
+  .contact-methods {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+
+  .contact-methods {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 899px) {
+
+  .info-step-grid,
+  .contact-method-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-step-grid article,
+  .contact-method-grid article {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .info-step-grid article:last-child,
+  .contact-method-grid article:last-child {
+    border-bottom: 0;
+  }
+
+  .contact-note {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .contact-note-actions {
+    width: 100%;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .info-step-grid article,
+  .contact-method-grid article {
+    padding: 28px 0 30px;
+  }
+
+  .contact-note {
+    margin-top: 44px;
+    padding: 26px 22px;
+    border-radius: 20px;
+  }
+
+  .contact-note > div:first-child {
+    display: grid;
+  }
+
+  .contact-note-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .contact-note-actions .button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .contact-note {
+    padding: 24px;
+    border-radius: 20px;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .contact-method-card:hover {
+    background: rgba(255, 253, 248, 0.72);
+    transform: translateY(-3px);
+  }
+}
+
+@media (max-width: 1120px) {
+
+  .contact-method-grid.is-production {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-method-card:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .contact-method-card {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .contact-method-card:last-child {
+    grid-column: 1 / -1;
+    border-bottom: 0;
+  }
+
+  .contact-business-card {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-business-card .button {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 899px) {
+
+  .contact-business-card {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-business-card .button {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .contact-method-grid.is-production {
+    grid-template-columns: 1fr;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .contact-method-card,
+  .contact-method-card:nth-child(2n),
+  .contact-method-card:last-child {
+    grid-column: auto;
+    padding: 21px 18px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .contact-method-card:last-child {
+    border-bottom: 0;
+  }
+
+  .contact-business-card {
+    margin-top: 28px;
+    padding: 22px 18px;
+    gap: 20px;
+    border-radius: 18px;
+  }
+
+  .contact-business-card .button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .contact-business-card .info-card-icon {
+    width: 36px;
+    height: 36px;
+  }
+}

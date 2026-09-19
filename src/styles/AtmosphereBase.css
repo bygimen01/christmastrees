@@ -1,0 +1,866 @@
+.seasonal-atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.seasonal-atmosphere span {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(184, 145, 75, 0.24);
+  box-shadow: 0 0 16px rgba(184, 145, 75, 0.2);
+  animation: seasonal-drift 9s var(--ease) infinite alternate;
+}
+
+.seasonal-atmosphere span:nth-child(1) { left: 6%; top: 18%; animation-duration: 8s; }
+
+.seasonal-atmosphere span:nth-child(2) { left: 18%; top: 72%; width: 3px; height: 3px; animation-duration: 11s; }
+
+.seasonal-atmosphere span:nth-child(3) { left: 38%; top: 33%; width: 4px; height: 4px; animation-duration: 10s; }
+
+.seasonal-atmosphere span:nth-child(4) { left: 57%; top: 79%; animation-duration: 12s; }
+
+.seasonal-atmosphere span:nth-child(5) { left: 72%; top: 24%; width: 3px; height: 3px; animation-duration: 9s; }
+
+.seasonal-atmosphere span:nth-child(6) { left: 84%; top: 62%; width: 4px; height: 4px; animation-duration: 13s; }
+
+.seasonal-atmosphere span:nth-child(7) { left: 92%; top: 14%; width: 3px; height: 3px; animation-duration: 10s; }
+
+.seasonal-atmosphere span:nth-child(8) { left: 48%; top: 10%; width: 3px; height: 3px; animation-duration: 14s; }
+
+.seasonal-atmosphere {
+  z-index: 2;
+  opacity: 0.55;
+}
+
+.seasonal-orb,
+.seasonal-ring,
+.seasonal-speck {
+  position: absolute;
+  pointer-events: none;
+}
+
+.seasonal-orb {
+  border-radius: 50%;
+  filter: blur(1px);
+  opacity: 0.16;
+  will-change: transform;
+}
+
+.seasonal-orb-one {
+  width: 190px;
+  height: 190px;
+  left: -90px;
+  top: 20%;
+  background: radial-gradient(circle, rgba(184,145,75,0.34), transparent 68%);
+  animation: background-drift-one 18s ease-in-out infinite alternate;
+}
+
+.seasonal-orb-two {
+  width: 260px;
+  height: 260px;
+  right: -130px;
+  top: 48%;
+  background: radial-gradient(circle, rgba(46,99,72,0.25), transparent 68%);
+  animation: background-drift-two 22s ease-in-out infinite alternate;
+}
+
+.seasonal-orb-three {
+  width: 160px;
+  height: 160px;
+  left: 42%;
+  bottom: -80px;
+  background: radial-gradient(circle, rgba(184,145,75,0.2), transparent 70%);
+  animation: background-drift-three 20s ease-in-out infinite alternate;
+}
+
+.seasonal-ring {
+  width: 96px;
+  height: 96px;
+  border: 1px solid rgba(184,145,75,0.12);
+  border-radius: 50%;
+  opacity: 0.45;
+}
+
+.seasonal-ring-one {
+  right: 7%;
+  top: 28%;
+  animation: ornament-orbit 28s linear infinite;
+}
+
+.seasonal-ring-two {
+  left: 9%;
+  top: 66%;
+  width: 58px;
+  height: 58px;
+  animation: ornament-orbit-reverse 24s linear infinite;
+}
+
+.seasonal-speck {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(184, 145, 75, 0.72);
+  box-shadow: 0 0 12px rgba(184, 145, 75, 0.4);
+  animation: speck-float 8s ease-in-out infinite alternate;
+}
+
+.seasonal-speck-1 { left: 5%; top: 13%; animation-duration: 8s; }
+
+.seasonal-speck-2 { left: 15%; top: 78%; animation-duration: 11s; }
+
+.seasonal-speck-3 { left: 27%; top: 37%; animation-duration: 9s; }
+
+.seasonal-speck-4 { left: 38%; top: 17%; animation-duration: 13s; }
+
+.seasonal-speck-5 { left: 49%; top: 69%; animation-duration: 10s; }
+
+.seasonal-speck-6 { left: 59%; top: 30%; animation-duration: 12s; }
+
+.seasonal-speck-7 { left: 68%; top: 84%; animation-duration: 8.5s; }
+
+.seasonal-speck-8 { left: 76%; top: 11%; animation-duration: 14s; }
+
+.seasonal-speck-9 { left: 85%; top: 55%; animation-duration: 9.5s; }
+
+.seasonal-speck-10 { left: 94%; top: 23%; animation-duration: 12.5s; }
+
+.seasonal-speck-11 { left: 33%; top: 91%; animation-duration: 15s; }
+
+.seasonal-speck-12 { left: 88%; top: 92%; animation-duration: 10.5s; }
+
+.seasonal-atmosphere {
+  z-index: 0;
+}
+
+.seasonal-atmosphere {
+  z-index: 8 !important;
+  opacity: 1 !important;
+  pointer-events: none;
+}
+
+.seasonal-orb {
+  opacity: 0.24;
+  filter: blur(10px);
+  mix-blend-mode: multiply;
+}
+
+.seasonal-symbol,
+.seasonal-bauble,
+.seasonal-scroll-progress {
+  position: fixed;
+  z-index: 1;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.seasonal-symbol {
+  display: grid;
+  place-items: center;
+  color: rgba(184, 145, 75, 0.34);
+  filter: drop-shadow(0 0 16px rgba(184, 145, 75, 0.16));
+}
+
+.seasonal-symbol svg {
+  width: 100%;
+  height: 100%;
+  stroke-width: 1.15;
+}
+
+.seasonal-snowflake-one {
+  width: 42px;
+  height: 42px;
+  left: 2.2vw;
+  top: 29vh;
+  transform: translate3d(0, var(--season-shift-small-neg, 0px), 0) rotate(var(--season-rotation, 0deg));
+  animation: seasonal-symbol-pulse 7s ease-in-out infinite alternate;
+}
+
+.seasonal-snowflake-two {
+  width: 30px;
+  height: 30px;
+  right: 3vw;
+  top: 72vh;
+  color: rgba(46, 99, 72, 0.28);
+  transform: translate3d(0, var(--season-shift-medium-neg, 0px), 0) rotate(var(--season-rotation-neg, 0deg));
+  animation: seasonal-symbol-pulse 9s ease-in-out infinite alternate-reverse;
+}
+
+.seasonal-star-one {
+  width: 24px;
+  height: 24px;
+  right: 7vw;
+  top: 20vh;
+  transform: translate3d(0, var(--season-shift-small-half, 0px), 0) rotate(var(--season-rotation, 0deg));
+  animation: sparkle-pulse 4.5s ease-in-out infinite;
+}
+
+.seasonal-sparkle-one {
+  width: 28px;
+  height: 28px;
+  left: 6vw;
+  top: 82vh;
+  color: rgba(184, 145, 75, 0.26);
+  transform: translate3d(0, var(--season-shift-medium-neg-half, 0px), 0);
+  animation: sparkle-pulse 5.5s ease-in-out infinite 1.2s;
+}
+
+.seasonal-bauble {
+  width: 28px;
+  height: 28px;
+  border: 1px solid rgba(184, 145, 75, 0.23);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.88), rgba(184, 145, 75, 0.16) 32%, rgba(184, 145, 75, 0.03) 72%);
+  box-shadow: 0 0 28px rgba(184, 145, 75, 0.12);
+}
+
+.seasonal-bauble::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -7px;
+  width: 8px;
+  height: 6px;
+  border: 1px solid rgba(184, 145, 75, 0.28);
+  border-bottom: 0;
+  border-radius: 5px 5px 0 0;
+  transform: translateX(-50%);
+}
+
+.seasonal-bauble i {
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+}
+
+.seasonal-bauble-one {
+  right: 2.3vw;
+  top: 46vh;
+  transform: translate3d(0, var(--season-shift-small-neg-soft, 0px), 0) rotate(var(--season-rotation, 0deg));
+  animation: bauble-sway 6.4s ease-in-out infinite alternate;
+}
+
+.seasonal-bauble-two {
+  left: 2.6vw;
+  top: 59vh;
+  width: 20px;
+  height: 20px;
+  transform: translate3d(0, var(--season-shift-medium-neg-soft, 0px), 0) rotate(var(--season-rotation-neg, 0deg));
+  animation: bauble-sway 8s ease-in-out infinite alternate-reverse;
+}
+
+.seasonal-scroll-progress {
+  right: 14px;
+  top: 29vh;
+  width: 1px;
+  height: 42vh;
+  border-radius: 999px;
+  background: rgba(16, 43, 33, 0.09);
+}
+
+.seasonal-scroll-progress i {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(184, 145, 75, 0.18), rgba(184, 145, 75, 0.86));
+  transform: scaleY(var(--season-progress, 0));
+  transform-origin: top;
+}
+
+.seasonal-scroll-progress::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: var(--season-progress-px, 0px);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 5px rgba(184, 145, 75, 0.10), 0 0 22px rgba(184, 145, 75, 0.38);
+  transform: translate(-50%, -50%);
+}
+
+.seasonal-speck {
+  opacity: 0.72;
+}
+
+.seasonal-garland {
+  position: fixed;
+  z-index: 1;
+  right: -24px;
+  top: 15vh;
+  width: 230px;
+  height: 42px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  pointer-events: none;
+  transform: translate3d(0, var(--season-shift-small-neg-soft, 0px), 0) rotate(-7deg);
+  transform-origin: center;
+  opacity: 0.46;
+}
+
+.seasonal-garland::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 5px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(16, 43, 33, 0.28) 12%, rgba(16, 43, 33, 0.28) 88%, transparent);
+}
+
+.seasonal-garland i {
+  position: relative;
+  width: 7px;
+  height: 11px;
+  margin-top: 5px;
+  border-radius: 50% 50% 46% 46%;
+  background: var(--gold-soft);
+  box-shadow: 0 0 10px rgba(234, 216, 183, 0.62), 0 0 22px rgba(184, 145, 75, 0.22);
+  animation: garland-glow 2.8s ease-in-out infinite alternate;
+}
+
+.seasonal-garland i::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -5px;
+  width: 3px;
+  height: 6px;
+  background: rgba(16, 43, 33, 0.46);
+  transform: translateX(-50%);
+}
+
+.seasonal-garland i:nth-child(2n) {
+  margin-top: 10px;
+  animation-delay: 0.55s;
+}
+
+.seasonal-garland i:nth-child(3n) {
+  margin-top: 3px;
+  animation-delay: 1.1s;
+}
+
+.seasonal-symbol {
+  color: rgba(184, 145, 75, 0.42);
+}
+
+.seasonal-bauble {
+  opacity: 0.68;
+}
+
+.seasonal-symbol,
+.seasonal-scroll-progress,
+.seasonal-garland {
+  background: transparent;
+  box-shadow: none;
+}
+
+.seasonal-scroll-progress,
+.seasonal-garland {
+  animation: none;
+}
+
+.seasonal-light {
+  position: fixed;
+  z-index: 0;
+  width: 34vw;
+  height: 70vh;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(58px);
+  opacity: 0.12;
+  will-change: transform;
+}
+
+.seasonal-light-one {
+  left: -17vw;
+  top: 16vh;
+  background: radial-gradient(ellipse at center, rgba(184, 145, 75, 0.62), rgba(184, 145, 75, 0.08) 42%, transparent 72%);
+  transform: translate3d(0, var(--season-shift-small, 0px), 0) rotate(-16deg);
+}
+
+.seasonal-light-two {
+  right: -20vw;
+  top: 52vh;
+  background: radial-gradient(ellipse at center, rgba(46, 99, 72, 0.46), rgba(46, 99, 72, 0.06) 44%, transparent 74%);
+  transform: translate3d(0, var(--season-shift-medium-neg-half, 0px), 0) rotate(18deg);
+}
+
+.seasonal-atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.seasonal-orb,
+.seasonal-ring,
+.seasonal-light,
+.seasonal-speck,
+.seasonal-symbol,
+.seasonal-bauble {
+  display: none !important;
+}
+
+.seasonal-decoration,
+.seasonal-ornament {
+  position: fixed;
+  z-index: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  will-change: transform, opacity;
+  color: color-mix(in srgb, var(--gold) 65%, var(--forest));
+  opacity: 0.34;
+  filter: drop-shadow(0 6px 14px rgba(184, 145, 75, 0.16));
+}
+
+.seasonal-decoration svg {
+  width: 100%;
+  height: 100%;
+  stroke-width: 1.45;
+}
+
+.seasonal-ornament {
+  width: 26px;
+  height: 34px;
+  border: 1.5px solid color-mix(in srgb, var(--gold) 72%, transparent);
+  border-radius: 50% 50% 48% 48%;
+  background: linear-gradient(145deg, color-mix(in srgb, var(--gold-soft) 46%, transparent), color-mix(in srgb, var(--red) 28%, transparent));
+  box-shadow: inset 0 0 0 4px color-mix(in srgb, var(--surface) 48%, transparent), 0 8px 24px rgba(184, 145, 75, 0.12);
+}
+
+.seasonal-ornament::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  width: 8px;
+  height: 8px;
+  border: 1px solid color-mix(in srgb, var(--gold) 70%, transparent);
+  border-bottom: 0;
+  border-radius: 8px 8px 0 0;
+}
+
+.seasonal-ornament::after {
+  content: "";
+  position: absolute;
+  inset: 8px 9px auto;
+  width: 5px;
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.28);
+  transform: rotate(28deg);
+}
+
+.seasonal-garland {
+  right: -16px;
+  top: 13vh;
+  width: 270px;
+  opacity: .58;
+  transform: translate3d(0, var(--season-shift-small-neg), 0) rotate(-5deg);
+}
+
+.seasonal-garland i {
+  animation-duration: 1.7s;
+}
+
+.seasonal-scroll-progress {
+  display: block;
+  opacity: .72;
+}
+
+:root[data-theme="dark"] .seasonal-decoration,
+:root[data-theme="dark"] .seasonal-ornament {
+  opacity: .48;
+}
+
+.section-atmosphere {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.section-atmosphere-item {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  color: rgba(177, 134, 57, 0.52);
+  filter: drop-shadow(0 10px 22px rgba(177, 134, 57, 0.16));
+  transition: opacity 280ms ease, transform 280ms ease;
+  will-change: transform, opacity;
+}
+
+.section-atmosphere-item svg {
+  width: 100%;
+  height: 100%;
+  stroke-width: 1.85;
+}
+
+.section-atmosphere-item.item-emoji {
+  font-size: 2.1rem;
+  line-height: 1;
+}
+
+.section-atmosphere-item.item-bauble {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 1px solid rgba(177, 134, 57, 0.42);
+  background: radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.96), rgba(232, 198, 114, 0.72) 35%, rgba(177, 134, 57, 0.1) 74%);
+  box-shadow: 0 10px 26px rgba(177, 134, 57, 0.18);
+}
+
+.section-atmosphere-item.item-bauble::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -8px;
+  width: 9px;
+  height: 7px;
+  border: 1px solid rgba(177, 134, 57, 0.42);
+  border-bottom: 0;
+  border-radius: 6px 6px 0 0;
+  transform: translateX(-50%);
+}
+
+.section-atmosphere:not(.is-visible) .section-atmosphere-item {
+  opacity: 0 !important;
+  animation: none !important;
+}
+
+.section-atmosphere.is-visible .section-atmosphere-item {
+  opacity: 1;
+}
+
+.section-atmosphere.is-visible .item-one,
+.section-atmosphere.is-visible .item-three,
+.section-atmosphere.is-visible .item-seven,
+.section-atmosphere.is-visible .item-nine {
+  animation: sectionAtmosphereFloat 5.6s ease-in-out infinite alternate;
+}
+
+.section-atmosphere.is-visible .item-two,
+.section-atmosphere.is-visible .item-five,
+.section-atmosphere.is-visible .item-six {
+  animation: sectionAtmosphereTwinkle 4.2s ease-in-out infinite;
+}
+
+.section-atmosphere.is-visible .item-four,
+.section-atmosphere.is-visible .item-eight,
+.section-atmosphere.is-visible .item-ten {
+  animation: sectionAtmosphereSwing 5.2s ease-in-out infinite alternate;
+  transform-origin: top center;
+}
+
+.item-snowflake { width: 30px; height: 30px; }
+
+.section-atmosphere-hero .item-one { left: 4%; top: 90px; }
+
+.section-atmosphere-hero .item-two { right: 7%; top: 108px; }
+
+.section-atmosphere-hero .item-three { right: 12%; top: 42%; }
+
+.section-atmosphere-hero .item-four { left: 7%; bottom: 20%; }
+
+.section-atmosphere-hero .item-five { left: 45%; top: 84px; }
+
+.section-atmosphere-hero .item-six { right: 18%; bottom: 14%; }
+
+.section-atmosphere-hero .item-seven { left: 18%; bottom: 18%; }
+
+.section-atmosphere-hero .item-eight { right: 30%; top: 26%; }
+
+.section-atmosphere-hero .item-nine { left: 54%; bottom: 12%; }
+
+.section-atmosphere-hero .item-ten { right: 4%; bottom: 22%; }
+
+.section-atmosphere-band .item-one { left: 4%; top: 22%; }
+
+.section-atmosphere-band .item-two { right: 5%; top: 24%; }
+
+.section-atmosphere-band .item-three { left: 18%; bottom: 18%; }
+
+.section-atmosphere-band .item-four { right: 18%; bottom: 16%; }
+
+.section-atmosphere-band .item-five { left: 48%; top: 18%; }
+
+.section-atmosphere-band .item-six { right: 32%; bottom: 20%; }
+
+.section-atmosphere-band .item-seven { left: 34%; bottom: 16%; }
+
+.section-atmosphere-band .item-eight { right: 42%; top: 26%; }
+
+.section-atmosphere-band .item-nine { display: none; }
+
+.section-atmosphere-band .item-ten { display: none; }
+
+.section-atmosphere-section .item-one,
+.section-atmosphere-info .item-one,
+.section-atmosphere-faq .item-one,
+.section-atmosphere-product .item-one { left: 3%; top: 52px; }
+
+.section-atmosphere-section .item-two,
+.section-atmosphere-info .item-two,
+.section-atmosphere-faq .item-two,
+.section-atmosphere-product .item-two { right: 4%; top: 58px; }
+
+.section-atmosphere-section .item-three,
+.section-atmosphere-info .item-three,
+.section-atmosphere-faq .item-three,
+.section-atmosphere-product .item-three { right: 9%; bottom: 18%; }
+
+.section-atmosphere-section .item-four,
+.section-atmosphere-info .item-four,
+.section-atmosphere-faq .item-four,
+.section-atmosphere-product .item-four { left: 8%; bottom: 16%; }
+
+.section-atmosphere-section .item-five,
+.section-atmosphere-info .item-five,
+.section-atmosphere-faq .item-five,
+.section-atmosphere-product .item-five { left: 48%; top: 44px; }
+
+.section-atmosphere-section .item-six,
+.section-atmosphere-info .item-six,
+.section-atmosphere-faq .item-six,
+.section-atmosphere-product .item-six { right: 24%; bottom: 12%; }
+
+.section-atmosphere-section .item-seven,
+.section-atmosphere-info .item-seven,
+.section-atmosphere-faq .item-seven,
+.section-atmosphere-product .item-seven { left: 24%; top: 56%; }
+
+.section-atmosphere-section .item-eight,
+.section-atmosphere-info .item-eight,
+.section-atmosphere-faq .item-eight,
+.section-atmosphere-product .item-eight { right: 16%; top: 48%; }
+
+.section-atmosphere-section .item-nine,
+.section-atmosphere-info .item-nine,
+.section-atmosphere-faq .item-nine,
+.section-atmosphere-product .item-nine { left: 82%; top: 24%; }
+
+.section-atmosphere-section .item-ten,
+.section-atmosphere-info .item-ten,
+.section-atmosphere-faq .item-ten,
+.section-atmosphere-product .item-ten { left: 38%; bottom: 10%; }
+
+.section-atmosphere-info .item-seven,
+.section-atmosphere-info .item-eight,
+.section-atmosphere-info .item-ten,
+.section-atmosphere-product .item-seven,
+.section-atmosphere-product .item-eight {
+  display: none;
+}
+
+.section-atmosphere-faq .item-three,
+.section-atmosphere-faq .item-four,
+.section-atmosphere-faq .item-nine {
+  display: none;
+}
+
+:root[data-theme="dark"] .section-atmosphere-item {
+  color: rgba(229, 194, 109, 0.62);
+  filter: drop-shadow(0 12px 24px rgba(229, 194, 109, 0.12));
+}
+
+:root[data-theme="dark"] .section-atmosphere-item.item-bauble {
+  border-color: rgba(229, 194, 109, 0.5);
+  background: radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.96), rgba(229, 194, 109, 0.78) 35%, rgba(229, 194, 109, 0.12) 74%);
+}
+
+.section-atmosphere .section-atmosphere-item {
+  display: none;
+}
+
+.section-atmosphere .atmosphere-tree,
+.section-atmosphere .atmosphere-star,
+.section-atmosphere .atmosphere-candy,
+.section-atmosphere .atmosphere-stocking,
+.section-atmosphere .atmosphere-bauble {
+  display: grid;
+  position: absolute;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  color: rgba(177, 134, 57, 0.72);
+  opacity: 0;
+  filter: drop-shadow(0 10px 22px rgba(177, 134, 57, 0.2));
+  will-change: transform, opacity;
+}
+
+.section-atmosphere .atmosphere-tree svg,
+.section-atmosphere .atmosphere-star svg,
+.section-atmosphere .atmosphere-candy svg,
+.section-atmosphere .atmosphere-stocking svg {
+  width: 100%;
+  height: 100%;
+}
+
+.section-atmosphere .atmosphere-bauble {
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid rgba(177, 134, 57, 0.55);
+  border-radius: 999px;
+  background: radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.98), rgba(236, 202, 117, 0.86) 34%, rgba(177, 134, 57, 0.16) 74%);
+  box-shadow: 0 12px 30px rgba(177, 134, 57, 0.22);
+}
+
+.section-atmosphere .atmosphere-bauble::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -9px;
+  width: 10px;
+  height: 8px;
+  border: 1.5px solid rgba(177, 134, 57, 0.58);
+  border-bottom: 0;
+  border-radius: 6px 6px 0 0;
+  transform: translateX(-50%);
+}
+
+.section-atmosphere.is-visible .atmosphere-tree {
+  opacity: 0.78;
+  animation: atmosphereEnter 620ms ease-out both, atmosphereTreeMove 3.8s ease-in-out 620ms infinite alternate;
+}
+
+.section-atmosphere.is-visible .atmosphere-star {
+  opacity: 0.88;
+  animation: atmosphereEnter 720ms ease-out both, atmosphereStarMove 3.2s ease-in-out 720ms infinite;
+}
+
+.section-atmosphere.is-visible .atmosphere-candy {
+  opacity: 0.76;
+  animation: atmosphereEnter 680ms ease-out both, atmosphereCandyMove 4.1s ease-in-out 680ms infinite alternate;
+}
+
+.section-atmosphere.is-visible .atmosphere-stocking {
+  opacity: 0.74;
+  animation: atmosphereEnter 760ms ease-out both, atmosphereStockingMove 3.6s ease-in-out 760ms infinite alternate;
+}
+
+.section-atmosphere.is-visible .atmosphere-bauble {
+  opacity: 0.82;
+  animation: atmosphereEnter 700ms ease-out both, atmosphereBaubleMove 3.3s ease-in-out 700ms infinite alternate;
+}
+
+.section-atmosphere-hero .atmosphere-tree { left: 4%; top: 18%; width: 52px; height: 52px; }
+
+.section-atmosphere-hero .atmosphere-star { right: 7%; top: 16%; width: 42px; height: 42px; }
+
+.section-atmosphere-hero .atmosphere-candy { left: 8%; bottom: 18%; width: 50px; height: 50px; }
+
+.section-atmosphere-hero .atmosphere-stocking { right: 6%; bottom: 20%; width: 48px; height: 48px; }
+
+.section-atmosphere-hero .atmosphere-bauble { right: 30%; top: 12%; }
+
+.section-atmosphere-band .atmosphere-tree { left: 4%; top: 26%; }
+
+.section-atmosphere-band .atmosphere-star { right: 5%; top: 24%; }
+
+.section-atmosphere-band .atmosphere-candy { left: 28%; bottom: 16%; }
+
+.section-atmosphere-band .atmosphere-stocking { display: none; }
+
+.section-atmosphere-band .atmosphere-bauble { display: none; }
+
+.section-atmosphere-section .atmosphere-tree,
+.section-atmosphere-info .atmosphere-tree,
+.section-atmosphere-faq .atmosphere-tree,
+.section-atmosphere-product .atmosphere-tree { left: 3.5%; top: 54px; }
+
+.section-atmosphere-section .atmosphere-star,
+.section-atmosphere-info .atmosphere-star,
+.section-atmosphere-faq .atmosphere-star,
+.section-atmosphere-product .atmosphere-star { right: 4%; top: 58px; }
+
+.section-atmosphere-section .atmosphere-candy,
+.section-atmosphere-info .atmosphere-candy,
+.section-atmosphere-faq .atmosphere-candy,
+.section-atmosphere-product .atmosphere-candy { right: 8%; bottom: 14%; }
+
+.section-atmosphere-section .atmosphere-stocking,
+.section-atmosphere-info .atmosphere-stocking,
+.section-atmosphere-faq .atmosphere-stocking,
+.section-atmosphere-product .atmosphere-stocking { display: none; }
+
+.section-atmosphere-section .atmosphere-bauble,
+.section-atmosphere-info .atmosphere-bauble,
+.section-atmosphere-faq .atmosphere-bauble,
+.section-atmosphere-product .atmosphere-bauble { display: none; }
+
+.section-atmosphere-info .atmosphere-candy,
+.section-atmosphere-faq .atmosphere-candy { display: none; }
+
+:root[data-theme="dark"] .section-atmosphere .atmosphere-tree,
+:root[data-theme="dark"] .section-atmosphere .atmosphere-star,
+:root[data-theme="dark"] .section-atmosphere .atmosphere-candy,
+:root[data-theme="dark"] .section-atmosphere .atmosphere-stocking {
+  color: rgba(237, 201, 111, 0.78);
+  filter: drop-shadow(0 10px 24px rgba(237, 201, 111, 0.17));
+}
+
+.section-atmosphere-hero .atmosphere-bauble {
+  display: none;
+}
+
+.section-atmosphere-band .atmosphere-star,
+.section-atmosphere-band .atmosphere-stocking,
+.section-atmosphere-band .atmosphere-bauble {
+  display: none;
+}
+
+.section-atmosphere-section .atmosphere-candy,
+.section-atmosphere-section .atmosphere-stocking,
+.section-atmosphere-section .atmosphere-bauble,
+.section-atmosphere-info .atmosphere-stocking,
+.section-atmosphere-info .atmosphere-bauble,
+.section-atmosphere-faq .atmosphere-candy,
+.section-atmosphere-faq .atmosphere-stocking,
+.section-atmosphere-faq .atmosphere-bauble {
+  display: none;
+}
+
+.section-atmosphere-product .atmosphere-stocking,
+.section-atmosphere-product .atmosphere-bauble {
+  display: none;
+}
+
+.section-atmosphere .atmosphere-tree,
+.section-atmosphere .atmosphere-star,
+.section-atmosphere .atmosphere-candy,
+.section-atmosphere .atmosphere-stocking,
+.section-atmosphere .atmosphere-bauble {
+  color: rgba(151, 105, 35, 0.88);
+  filter: drop-shadow(0 8px 16px rgba(151, 105, 35, 0.16));
+}
+
+.section-atmosphere.is-visible .atmosphere-tree,
+.section-atmosphere.is-visible .atmosphere-star,
+.section-atmosphere.is-visible .atmosphere-candy,
+.section-atmosphere.is-visible .atmosphere-stocking,
+.section-atmosphere.is-visible .atmosphere-bauble {
+  opacity: 0.92;
+}
+
+:root[data-theme="dark"] .section-atmosphere .atmosphere-tree,
+:root[data-theme="dark"] .section-atmosphere .atmosphere-star,
+:root[data-theme="dark"] .section-atmosphere .atmosphere-candy,
+:root[data-theme="dark"] .section-atmosphere .atmosphere-stocking,
+:root[data-theme="dark"] .section-atmosphere .atmosphere-bauble {
+  color: rgba(226, 186, 91, 0.82);
+  filter: drop-shadow(0 10px 18px rgba(226, 186, 91, 0.12));
+}

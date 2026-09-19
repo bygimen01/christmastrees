@@ -1,0 +1,99 @@
+.accordion {
+  display: grid;
+  gap: 10px;
+}
+
+.accordion-item {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.accordion h3 {
+  margin: 0;
+}
+
+.accordion button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border: 0;
+  padding: 18px;
+  color: var(--forest);
+  background: transparent;
+  text-align: left;
+  font-weight: 900;
+}
+
+.accordion button svg {
+  flex: 0 0 auto;
+  transition: transform 180ms var(--ease);
+}
+
+.accordion button[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.accordion-panel {
+  padding: 0 18px 18px;
+}
+
+.accordion-panel p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.accordion-item {
+  border-bottom: 1px solid var(--line);
+}
+
+.accordion-item:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.accordion-trigger {
+  min-height: 74px;
+  padding: 18px 0;
+  background: transparent;
+  font-size: 1rem;
+}
+
+.product-mosaic-faq .accordion {
+  margin-top: 16px;
+}
+
+:root[data-theme="dark"] .hero-floating-card,
+:root[data-theme="dark"] .hero-metrics > div,
+:root[data-theme="dark"] .contact-business-card,
+:root[data-theme="dark"] .contact-method-card,
+:root[data-theme="dark"] .faq-page-layout > aside,
+:root[data-theme="dark"] .accordion-item,
+:root[data-theme="dark"] .process-grid article,
+:root[data-theme="dark"] .why-list article,
+:root[data-theme="dark"] .why-list article:first-child {
+  background: rgba(13, 23, 19, 0.84);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
+}
+
+:root[data-theme="dark"] .details-card-heading h2,
+:root[data-theme="dark"] .product-mosaic-delivery h2,
+:root[data-theme="dark"] .product-mosaic-faq > h2,
+:root[data-theme="dark"] .spec-list dd,
+:root[data-theme="dark"] .accordion button {
+  color: #f3ede3 !important;
+}
+
+:root[data-theme="dark"] .spec-list dt,
+:root[data-theme="dark"] .product-mosaic-delivery p,
+:root[data-theme="dark"] .accordion-panel p {
+  color: #9eaca4 !important;
+}
+
+:root[data-theme="dark"] .accordion-item {
+  border-color: rgba(239, 232, 218, 0.11) !important;
+  background: #15271f !important;
+}

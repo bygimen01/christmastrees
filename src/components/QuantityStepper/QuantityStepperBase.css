@@ -1,0 +1,54 @@
+.quantity-stepper {
+  width: max-content;
+  display: grid;
+  grid-template-columns: 42px 54px 42px;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.quantity-stepper button {
+  width: 42px;
+  height: 42px;
+  border: 0;
+  color: var(--forest);
+  background: transparent;
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.quantity-stepper output {
+  text-align: center;
+  font-weight: 900;
+}
+
+.quantity-stepper {
+  min-height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+}
+
+.quantity-stepper button {
+  width: 34px;
+  height: 34px;
+}
+
+.quantity-stepper output {
+  min-width: 28px;
+  font-size: 0.78rem;
+}
+
+:root[data-theme="dark"] .quantity-stepper {
+  color: #f4efe6 !important;
+  background: #142a20 !important;
+  border-color: rgba(239, 232, 218, 0.14) !important;
+}
+
+:root[data-theme="dark"] .quantity-stepper button,
+:root[data-theme="dark"] .quantity-stepper output {
+  color: #f4efe6 !important;
+  background: transparent !important;
+}

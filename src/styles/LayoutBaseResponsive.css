@@ -1,0 +1,111 @@
+@media (min-width: 560px) {
+  .container {
+    width: min(100% - 44px, var(--container));
+  }
+}
+
+@media (min-width: 768px) {
+
+  .section-heading {
+    grid-template-columns: 1fr auto;
+    align-items: end;
+  }
+
+  .split-section {
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: start;
+  }
+}
+
+@media (max-width: 899px) {
+
+  .container,
+  .header-inner {
+    width: min(100% - 28px, var(--container));
+  }
+}
+
+@media (max-width: 680px) {
+  .container,
+  .header-inner {
+    width: min(100% - 22px, var(--container));
+  }
+
+  .section-block {
+    padding: 78px 0;
+  }
+
+  .section-heading {
+    margin-bottom: 30px;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(2.3rem, 11vw, 3.5rem);
+  }
+}
+
+@media (max-width: 390px) {
+  .container,
+  .header-inner {
+    width: min(100% - 18px, var(--container));
+  }
+}
+
+@media (max-width: 680px) {
+
+  .section-block {
+    padding: 64px 0;
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .section-heading::after,
+  .faq-heading::after {
+    animation: heading-line-grow linear both;
+    animation-timeline: view();
+    animation-range: entry 4% cover 25%;
+  }
+}
+
+@media (max-width: 680px) {
+
+  .section-heading::after,
+  .faq-heading::after {
+    width: 58px;
+    margin-top: 14px;
+  }
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding-inline: 20px;
+  }
+}
+
+@media (max-width: 680px) {
+  .container,
+  .header-inner {
+    width: min(100% - 20px, var(--container)) !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .container,
+  .header-inner {
+    width: min(100% - 16px, var(--container)) !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .container,
+  .header-inner {
+    width: calc(100% - 18px) !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .container,
+  .header-inner {
+    width: calc(100% - 14px) !important;
+  }
+}

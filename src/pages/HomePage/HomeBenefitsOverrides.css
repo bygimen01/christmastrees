@@ -1,0 +1,33 @@
+.why-section {
+  background: #103326;
+  color: #ffffff;
+}
+
+.why-heading h2,
+.why-list h3 {
+  color: #ffffff;
+}
+
+.why-heading p,
+.why-list p {
+  color: rgba(255,255,255,0.72);
+}
+
+.why-list article {
+  background: rgba(255,255,255,0.045);
+  border: 1px solid rgba(255,255,255,0.11);
+  box-shadow: none;
+}
+
+.why-card-icon,
+.process-card-icon,
+.trust-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.why-card-icon {
+  color: #e4c27f;
+  background: rgba(255,255,255,0.06);
+}

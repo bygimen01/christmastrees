@@ -1,0 +1,89 @@
+.product-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.product-card-link {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 3 !important;
+  display: block !important;
+  border-radius: inherit;
+}
+
+.product-card .quick-add-button,
+.product-card button,
+.product-card input,
+.product-card select {
+  position: relative;
+  z-index: 5;
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+}
+
+.product-card-bottom {
+  gap: 16px;
+  align-items: end;
+}
+
+.price-stack {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.price-stack strong {
+  display: block;
+  max-width: 100%;
+  color: var(--stable-text);
+  text-wrap: balance;
+}
+
+.quick-add-button {
+  flex: 0 0 auto;
+  min-width: 140px;
+}
+
+.product-card-body > p,
+.product-card-meta,
+.price-stack small {
+  color: var(--stable-muted);
+}
+
+.height-list span,
+.product-info-facts span {
+  border-color: var(--stable-line);
+  background: color-mix(in srgb, var(--stable-surface) 88%, transparent);
+  color: var(--stable-text);
+}
+
+:root[data-theme="dark"] .product-card h3,
+:root[data-theme="dark"] .product-card strong,
+:root[data-theme="dark"] .product-info h1,
+:root[data-theme="dark"] .product-info h2,
+:root[data-theme="dark"] .product-mosaic-story h2,
+:root[data-theme="dark"] .product-mosaic-specs h2,
+:root[data-theme="dark"] .product-mosaic-delivery h2,
+:root[data-theme="dark"] .product-mosaic-faq h2 {
+  color: #fffaf0;
+}
+
+:root[data-theme="dark"] .product-card p,
+:root[data-theme="dark"] .product-card-meta,
+:root[data-theme="dark"] .product-trust-list,
+:root[data-theme="dark"] .product-assurance,
+:root[data-theme="dark"] .product-mosaic-story p,
+:root[data-theme="dark"] .product-mosaic-delivery p {
+  color: var(--stable-muted);
+}
+
+.quick-add-shell {
+  z-index: 1300 !important;
+}
+
+.quick-add-panel,
+.mobile-filter-panel {
+  overscroll-behavior: contain;
+}

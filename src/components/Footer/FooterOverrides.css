@@ -1,0 +1,16 @@
+.site-footer {
+  background: #0d2b20;
+  color: rgba(255,255,255,0.78);
+}
+
+.site-footer .footer-brand,
+.site-footer h2,
+.site-footer strong {
+  color: #ffffff;
+}
+
+.site-footer a,
+.site-footer p,
+.footer-bottom {
+  color: rgba(255,255,255,0.68);
+}

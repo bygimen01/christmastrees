@@ -1,0 +1,9 @@
+:root[data-theme="dark"] .info-hero,
+:root[data-theme="dark"] .compact-info-hero,
+:root[data-theme="dark"] .info-section,
+:root[data-theme="dark"] .info-section-muted,
+:root[data-theme="dark"] .faq-page-section,
+:root[data-theme="dark"] .contacts-page-section,
+:root[data-theme="dark"] .delivery-overview-section {
+  background: #081710;
+}

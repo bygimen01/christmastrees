@@ -1,0 +1,47 @@
+.faq-layout {
+  display: grid;
+  gap: 20px;
+}
+
+.faq-layout {
+  display: grid;
+  grid-template-columns: .78fr 1.22fr;
+  gap: 85px;
+  align-items: start;
+}
+
+.faq-page-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.62fr) minmax(0, 1.38fr);
+  gap: 76px;
+  align-items: start;
+}
+
+.faq-page-layout > aside {
+  position: sticky;
+  top: calc(var(--header-height) + 28px);
+}
+
+.faq-page-layout > aside h2 {
+  margin-top: 24px;
+}
+
+.faq-page-layout > aside p {
+  margin: 16px 0 26px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+:root[data-theme="dark"] .hero-content h1,
+:root[data-theme="dark"] .section-heading h2,
+:root[data-theme="dark"] .why-heading h2,
+:root[data-theme="dark"] .editorial-copy h2,
+:root[data-theme="dark"] .faq-heading h2,
+:root[data-theme="dark"] .info-hero h1,
+:root[data-theme="dark"] .faq-page-layout > aside h2,
+:root[data-theme="dark"] .product-mosaic-story h2,
+:root[data-theme="dark"] .product-mosaic-delivery h2,
+:root[data-theme="dark"] .product-mosaic-faq h2,
+:root[data-theme="dark"] .product-mosaic-specs h2 {
+  color: #f5f1e8;
+}
