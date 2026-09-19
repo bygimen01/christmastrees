@@ -1,4 +1,4 @@
-import RawConfig from "../../data/shopConfig";
+import RawConfig from "../../data/shopConfig.json";
 import { Locale } from "../types";
 
 export const shopConfig = RawConfig;
